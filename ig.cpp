@@ -10,7 +10,12 @@ IG::IG(QWidget *parent) :
 
 }
 
+void IG::loc() {
+    printf("coucou ca marche\n");
+}
+
 IG::~IG()
 {
     delete ui;
 }
+

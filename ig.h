@@ -4,24 +4,24 @@
 #include <QMainWindow>
 
 namespace Ui {
-class IG;
-
-    void loc() {
-    printf("coucou ça marche ! \n");
+    class IG;
 }
 
-}
+class IG :
+    public QMainWindow {
+        Q_OBJECT
 
-class IG : public QMainWindow
-{
-    Q_OBJECT
+        public:
+            explicit IG(QWidget *parent = 0);
+            ~IG();
 
-public:
-    explicit IG(QWidget *parent = 0);
-    ~IG();
+        protected slots:
+            void loc();
 
-private:
-    Ui::IG *ui;
-};
+        private:
+            Ui::IG *ui;
+    };
+
+
 
 #endif // IG_H
