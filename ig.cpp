@@ -6,6 +6,8 @@ IG::IG(QWidget *parent) :
     ui(new Ui::IG)
 {
     ui->setupUi(this);
+    connect(ui->askLocation, SIGNAL(clicked()), this, SLOT(loc()));
+
 }
 
 IG::~IG()

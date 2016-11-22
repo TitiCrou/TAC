@@ -5,6 +5,11 @@
 
 namespace Ui {
 class IG;
+
+    void loc() {
+    printf("coucou ça marche ! \n");
+}
+
 }
 
 class IG : public QMainWindow

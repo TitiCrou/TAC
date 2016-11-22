@@ -15,6 +15,7 @@ TEMPLATE = app
 SOURCES += main.cpp\
         ig.cpp
 
-HEADERS  += ig.h
+HEADERS  += \
+    ig.h
 
 FORMS    += ig.ui
