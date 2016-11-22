@@ -13,10 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        ig.cpp\
-		GUI.cpp
+        ig.cpp
 
-HEADERS  += ig.h\
-			GUI.hpp
+HEADERS  += ig.h
 
 FORMS    += ig.ui
