@@ -18,4 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += \
     ig.h
 
-FORMS    += ig.ui
+FORMS    += \
+    fenetreprincipale.ui \
+    fenetreavis.ui
