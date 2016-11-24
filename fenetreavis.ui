@@ -16,29 +16,57 @@
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>10</x>
+     <y>10</y>
      <width>551</width>
-     <height>301</height>
+     <height>431</height>
     </rect>
    </property>
    <widget class="QLabel" name="succes">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>130</y>
-      <width>331</width>
-      <height>121</height>
+      <x>10</x>
+      <y>50</y>
+      <width>521</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Comic Sans MS</family>
-      <pointsize>42</pointsize>
+      <pointsize>22</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>such success</string>
+     <string>Louer en toute simplicité</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="retour">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Menu</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="zoneAvis">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>270</y>
+      <width>291</width>
+      <height>79</height>
+     </rect>
     </property>
    </widget>
   </widget>

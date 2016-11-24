@@ -5,6 +5,7 @@
 #include <QStackedWidget>
 #include "ui_fenetreprincipale.h"
 #include "ui_fenetreavis.h"
+#include "ui_fenetrelocation.h"
 
 namespace Ui {
     class IG;
@@ -25,12 +26,14 @@ class IG : public QMainWindow {
             void loc();
             void afficherFenetre(int index);
             void mettreAvis();
+            void retourMenu();
 
         private:
             Ui::FenetrePrincipale *uiPpale;
             Ui::FenetreAvis *uiAvis;
+            Ui::FenetreLocation *uiLoc;
             QStackedWidget *stack;
-            QWidget *fdem, *favis;
+            QWidget *fdem, *favis, *floc;
     };
 
 

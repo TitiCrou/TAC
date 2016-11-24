@@ -20,4 +20,5 @@ HEADERS  += \
 
 FORMS    += \
     fenetreprincipale.ui \
-    fenetreavis.ui
+    fenetreavis.ui \
+    fenetrelocation.ui
