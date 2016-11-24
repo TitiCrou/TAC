@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include <QList>
 #include "ui_fenetreprincipale.h"
 #include "ui_fenetreavis.h"
 #include "ui_fenetrelocation.h"
@@ -27,6 +28,9 @@ class IG : public QMainWindow {
             void afficherFenetre(int index);
             void mettreAvis();
             void retourMenu();
+            void choixVehicule();
+            void validerAvis();
+            void choixCategorie();
 
         private:
             Ui::FenetrePrincipale *uiPpale;
@@ -34,6 +38,7 @@ class IG : public QMainWindow {
             Ui::FenetreLocation *uiLoc;
             QStackedWidget *stack;
             QWidget *fdem, *favis, *floc;
+            QList<QString> listeVoiture, listeBus, listeVelo;
     };
 
 
