@@ -49,5 +49,6 @@ IG::~IG()
 {
     delete uiPpale;
     delete uiAvis;
+    delete uiLoc;
 }
 
