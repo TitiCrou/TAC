@@ -28,7 +28,6 @@ IG::IG(QWidget *parent) : QMainWindow(parent), uiPpale(new Ui::FenetrePrincipale
 }
 
 void IG::loc() {
-    //uiPpale->askLocation->setText("Demande OK");
     emit signalChangement(2);
 }
 
