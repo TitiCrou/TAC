@@ -38,6 +38,7 @@ IG::IG(QWidget *parent) : QMainWindow(parent), uiPpale(new Ui::FenetrePrincipale
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     uiLoc->listVehicule->addItems(listeVoiture);
+    uiLoc->listVehicule->setCurrentRow(0);
 
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
 
@@ -87,6 +88,7 @@ void IG::choixCategorie() {
         uiLoc->listVehicule->clear();
         uiLoc->listVehicule->addItems(listeVoiture);
     }
+    uiLoc->listVehicule->setCurrentRow(0);
 }
 
 IG::~IG()
