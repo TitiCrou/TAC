@@ -34,7 +34,9 @@ IG::IG(QWidget *parent) : QMainWindow(parent), uiPpale(new Ui::FenetrePrincipale
     // Connexions uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
     connect(uiLoc->chooseButton, SIGNAL(clicked()), this, SLOT(choixVehicule()));
-    connect(uiLoc->buttonGroup, SIGNAL(clicked()), this, SLOT(choixCategorie()));
+    connect(uiLoc->carButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
+    connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
+    connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     uiLoc->listVehicule->addItems(listeVoiture);
 
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
@@ -75,13 +77,13 @@ void IG::validerAvis() {
 }
 
 void IG::choixCategorie() {
-    if(uiLoc->buttonGroup->checkedButton()->text() == "Bus") {
+    if(uiLoc->busButton->isChecked()) {
         uiLoc->listVehicule->clear();
         uiLoc->listVehicule->addItems(listeBus);
-    } else if(uiLoc->buttonGroup->checkedButton()->text() == "Vélo") {
+    } else if(uiLoc->bikeButton->isChecked()) {
         uiLoc->listVehicule->clear();
         uiLoc->listVehicule->addItems(listeVelo);
-    } else if(uiLoc->buttonGroup->checkedButton()->text() == "Voiture") {
+    } else if(uiLoc->carButton->isChecked()) {
         uiLoc->listVehicule->clear();
         uiLoc->listVehicule->addItems(listeVoiture);
     }
