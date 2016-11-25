@@ -71,10 +71,19 @@ void IG::choixVehicule() {
 
 void IG::validerAvis() {
     QString avis = uiAvis->zoneAvis->toPlainText();
-    QString note = uiAvis->buttonGroup->checkedButton()->text();
+    //QString note = uiAvis->buttonGroup->checkedButton()->text();
+    QString note;
     QMessageBox test;
-    test.setText("Note donnée : "+note+"\nAvis donné :\n"+avis);
-    test.exec();
+
+    if(!uiAvis->buttonGroup->checkedButton()->isChecked()) {
+        test.setText("Veuillez selectionner une note.");
+        test.exec();
+    } else {
+        note = uiAvis->buttonGroup->checkedButton()->text();
+        test.setText("Note donnée : "+note+"\nAvis donné :\n"+avis);
+        test.exec();
+    }
+
 }
 
 void IG::choixCategorie() {
