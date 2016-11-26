@@ -1,16 +1,26 @@
 #include "ig.h"
 #include <QMessageBox>
 
-IG::IG(QWidget *parent) : QMainWindow(parent), uiPpale(new Ui::FenetrePrincipale), uiAvis(new Ui::FenetreAvis), uiLoc(new Ui::FenetreLocation)
-{
+IG::IG(QWidget *parent) : QMainWindow(parent) {
+
+    uiPpale = new Ui::FenetrePrincipale;
+    uiAvis = new Ui::FenetreAvis;
+    uiLoc = new Ui::FenetreLocation;
+
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
     uiLoc->setupUi(this);
     stack = new QStackedWidget(this);
 
-    listeVoiture << "Porsche Cayenne" << "Peugeot 207" << "Audi Q5";
-    listeBus << "Bus Scolaire" << "Bus Urbain" << "Bus Toursime";
-    listeVelo << "VTT Giant" << "VTC Giant" << "VTT Scott" << "VTC Scott";
+    for (int i = 0; i<lesVehicules.voituresSize() ; i++) {
+        listeVoiture << lesVehicules.voitureToQString(i);
+    }
+    for (int i = 0; i<lesVehicules.busSize() ; i++) {
+        listeBus << lesVehicules.busToQString(i);
+    }
+    for (int i = 0; i<lesVehicules.velosSize() ; i++) {
+        listeVelo << lesVehicules.veloToQString(i);
+    }
 
     fdem = uiPpale->centralWidget;
     favis = uiAvis->centralWidget;

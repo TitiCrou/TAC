@@ -13,10 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        ig.cpp
+        ig.cpp \
+    vehicule.cpp \
+    lesvehicules.cpp
 
 HEADERS  += \
-    ig.h
+    ig.h \
+    vehicule.h \
+    lesvehicules.h
 
 FORMS    += \
     fenetreprincipale.ui \

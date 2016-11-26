@@ -4,9 +4,12 @@
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QList>
+
 #include "ui_fenetreprincipale.h"
 #include "ui_fenetreavis.h"
 #include "ui_fenetrelocation.h"
+
+#include "lesvehicules.h"
 
 namespace Ui {
     class IG;
@@ -39,6 +42,7 @@ class IG : public QMainWindow {
             QStackedWidget *stack;
             QWidget *fdem, *favis, *floc;
             QList<QString> listeVoiture, listeBus, listeVelo;
+            LesVehicules lesVehicules;
     };
 
 
