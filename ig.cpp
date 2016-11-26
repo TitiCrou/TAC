@@ -12,14 +12,14 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiLoc->setupUi(this);
     stack = new QStackedWidget(this);
 
-    for (int i = 0; i<lesVehicules.voituresSize() ; i++) {
-        listeVoiture << lesVehicules.voitureToQString(i);
+    for (int i = 0; i<lesVoitures.size() ; i++) {
+        listeVoiture << lesVoitures.toQString(i);
     }
-    for (int i = 0; i<lesVehicules.busSize() ; i++) {
-        listeBus << lesVehicules.busToQString(i);
+    for (int i = 0; i<lesBus.size() ; i++) {
+        listeBus << lesBus.toQString(i);
     }
-    for (int i = 0; i<lesVehicules.velosSize() ; i++) {
-        listeVelo << lesVehicules.veloToQString(i);
+    for (int i = 0; i<lesVelos.size() ; i++) {
+        listeVelo << lesVelos.toQString(i);
     }
 
     fdem = uiPpale->centralWidget;
@@ -115,5 +115,9 @@ IG::~IG()
     delete uiPpale;
     delete uiAvis;
     delete uiLoc;
+    delete stack;
+    delete fdem;
+    delete favis;
+    delete floc;
 }
 

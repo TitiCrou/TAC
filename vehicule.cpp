@@ -12,10 +12,8 @@ void Vehicule::setModele (std::string mod) {
 }
 
 QString Vehicule::toQString() {
-    return QString(this->getModele().c_str());
+   return QString(this->getModele().c_str());
 }
-
-
 
 Vehicule::~Vehicule() {
 
