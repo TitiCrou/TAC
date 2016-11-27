@@ -40,6 +40,7 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     // Connexions uiAvis
     connect(uiAvis->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
     connect(uiAvis->sendAvis, SIGNAL(clicked()), this, SLOT(validerAvis()));
+    uiAvis->rate5->setChecked("TRUE");
 
     // Connexions uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
@@ -85,15 +86,13 @@ void IG::validerAvis() {
     QString note;
     QMessageBox test;
 
-    if(!uiAvis->buttonGroup->checkedButton()->isChecked()) {
+    /*if(uiAvis->buttonGroup->checkedButton()) {
         test.setText("Veuillez selectionner une note.");
         test.exec();
-    } else {
-        note = uiAvis->buttonGroup->checkedButton()->text();
-        test.setText("Note donnée : "+note+"\nAvis donné :\n"+avis);
-        test.exec();
-    }
-
+    } else {*/
+    note = uiAvis->buttonGroup->checkedButton()->text();
+    test.setText("Note donnée : "+note+"\nAvis donné :\n"+avis);
+    test.exec();
 }
 
 void IG::choixCategorie() {
