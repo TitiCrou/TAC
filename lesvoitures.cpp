@@ -7,13 +7,6 @@ LesVoitures::LesVoitures() : LesVehicules() {
     Voiture v2(12000, 90, "C4", "Citroën", "Grise", "AA-001-AA");
     Voiture v3(6000, 130, "S60", "Volvo", "Rouge", "AA-002-AA");
 
-
-    /*
-    v1.setModele("Porsche Cayenne");
-    v2.setModele("Peugeot 207");
-    v3.setModele("Audi Q5");
-    */
-
     lesVehicules.push_back(v1);
     lesVehicules.push_back(v2);
     lesVehicules.push_back(v3);
