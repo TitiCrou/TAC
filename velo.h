@@ -7,7 +7,12 @@ class Velo : public Vehicule {
 
 public:
     Velo();
+    Velo(double pneu, std::string size, std::string mod, std::string marq, std::string color, std::string immat);
     QString toQString();
+
+protected:
+    double taillePneu;
+    std::string taille;
 
 };
 
