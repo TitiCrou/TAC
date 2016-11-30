@@ -9,16 +9,12 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiLoc = new Ui::FenetreLocation;
 
     uiPpale->setupUi(this);
-    this->setWindowTitle("Transports à la carte");;
-
     uiAvis->setupUi(this);
-    uiAvis->centralWidget->setWindowTitle("Donner son avis");
-
     uiLoc->setupUi(this);
-    uiLoc->centralWidget->setWindowTitle("Louer un véhicule");
 
+
+    this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);
-    stack->setWindowTitle("Transports à la carte");
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -119,7 +115,6 @@ void IG::choixCategorie() {
 IG::~IG()
 {
     delete stack;
-    delete uiPpale;
     delete uiPpale;
     delete uiAvis;
     delete uiLoc;
