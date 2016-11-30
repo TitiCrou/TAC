@@ -7,10 +7,13 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiPpale = new Ui::FenetrePrincipale;
     uiAvis = new Ui::FenetreAvis;
     uiLoc = new Ui::FenetreLocation;
+    uiProb = new Ui::FenetreProbleme;
 
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
+    uiProb->setupUi(this);
     uiLoc->setupUi(this);
+
 
 
     this->setWindowTitle("Transports à la carte");
@@ -29,9 +32,11 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     fdem = uiPpale->centralWidget;
     favis = uiAvis->centralWidget;
     floc = uiLoc->centralWidget;
+    fprob = uiProb->centralWidget;
 
     stack->addWidget(fdem);
     stack->addWidget(favis);
+    stack->addWidget(fprob);
     stack->addWidget(floc);
 
     this->setCentralWidget(stack);
