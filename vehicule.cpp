@@ -3,11 +3,13 @@
 Vehicule::Vehicule() {
 }
 
-Vehicule::Vehicule(std::string mod, std::string marq, std::string color, std::string immat) {
+Vehicule::Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, double price) {
     modele = mod;
     marque = marq;
     couleur = color;
     id = immat;
+    annee = an;
+    prix = price;
 }
 
 std::string Vehicule::getModele() {
@@ -26,6 +28,14 @@ std::string Vehicule::getId() {
     return id;
 }
 
+int Vehicule::getAnnee() {
+    return annee;
+}
+
+double Vehicule::getPrix() {
+    return prix;
+}
+
 void Vehicule::setModele (std::string mod) {
     modele = mod;
 }
@@ -40,6 +50,14 @@ void Vehicule::setCouleur (std::string color) {
 
 void Vehicule::setId (std::string immat) {
     id = immat;
+}
+
+void Vehicule::setAnnee(int an) {
+    annee = an;
+}
+
+void Vehicule::setPrix(double price) {
+    prix = price;
 }
 
 QString Vehicule::toQString() {

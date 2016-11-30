@@ -3,6 +3,7 @@
 
 IG::IG(QWidget *parent) : QMainWindow(parent) {
 
+
     uiPpale = new Ui::FenetrePrincipale;
     uiAvis = new Ui::FenetreAvis;
     uiLoc = new Ui::FenetreLocation;
@@ -10,6 +11,9 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
     uiLoc->setupUi(this);
+
+
+    this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
@@ -31,7 +35,6 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     stack->addWidget(floc);
 
     this->setCentralWidget(stack);
-    //stack->setCurrentIndex(0); /*Fixe la fenetre de demarrage*/
 
     // Connexions uiPpale
     connect(uiPpale->askLocation, SIGNAL(clicked()), this, SLOT(loc()));
@@ -112,7 +115,6 @@ void IG::choixCategorie() {
 IG::~IG()
 {
     delete stack;
-    delete uiPpale;
     delete uiPpale;
     delete uiAvis;
     delete uiLoc;

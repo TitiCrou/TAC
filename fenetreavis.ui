@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Votre avis compte</string>
   </property>
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">
@@ -33,7 +33,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
+      <family>MS Shell Dlg 2</family>
       <pointsize>22</pointsize>
       <weight>75</weight>
       <bold>true</bold>
