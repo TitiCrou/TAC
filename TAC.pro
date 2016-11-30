@@ -31,12 +31,13 @@ HEADERS  += \
     voiture.h \
     bus.h \
     velo.h \
-    lesvoitures.h \
     lesbus.h \
     lesvelos.h \
     location.h
 
+
 FORMS    += \
     fenetreprincipale.ui \
     fenetreavis.ui \
-    fenetrelocation.ui
+    fenetrelocation.ui \
+    fenetreprobleme.ui
