@@ -1,10 +1,5 @@
 #include "lesvehicules.h"
 
-/*****************************/
-/*    Structure provisoire   */
-/*        -> Héritage        */
-/*****************************/
-
 LesVehicules::LesVehicules() {
 }
 

@@ -111,12 +111,10 @@ void IG::choixCategorie() {
 
 IG::~IG()
 {
+    delete stack;
+    delete uiPpale;
     delete uiPpale;
     delete uiAvis;
     delete uiLoc;
-    delete stack;
-    delete fdem;
-    delete favis;
-    delete floc;
 }
 
