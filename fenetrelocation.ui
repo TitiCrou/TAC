@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Transports à la carte</string>
   </property>
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">

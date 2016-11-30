@@ -3,14 +3,22 @@
 
 IG::IG(QWidget *parent) : QMainWindow(parent) {
 
+
     uiPpale = new Ui::FenetrePrincipale;
     uiAvis = new Ui::FenetreAvis;
     uiLoc = new Ui::FenetreLocation;
 
     uiPpale->setupUi(this);
+    this->setWindowTitle("Transports à la carte");;
+
     uiAvis->setupUi(this);
+    uiAvis->centralWidget->setWindowTitle("Donner son avis");
+
     uiLoc->setupUi(this);
+    uiLoc->centralWidget->setWindowTitle("Louer un véhicule");
+
     stack = new QStackedWidget(this);
+    stack->setWindowTitle("Transports à la carte");
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -31,7 +39,6 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     stack->addWidget(floc);
 
     this->setCentralWidget(stack);
-    //stack->setCurrentIndex(0); /*Fixe la fenetre de demarrage*/
 
     // Connexions uiPpale
     connect(uiPpale->askLocation, SIGNAL(clicked()), this, SLOT(loc()));
