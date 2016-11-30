@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     velo.cpp \
     lesvoitures.cpp \
     lesbus.cpp \
-    lesvelos.cpp
+    lesvelos.cpp \
+    location.cpp
 
 HEADERS  += \
     ig.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     velo.h \
     lesvoitures.h \
     lesbus.h \
-    lesvelos.h
+    lesvelos.h \
+    location.h
 
 FORMS    += \
     fenetreprincipale.ui \
