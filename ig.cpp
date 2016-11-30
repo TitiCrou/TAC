@@ -68,6 +68,7 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
 }
 
 void IG::loc() {
+    uiLoc->stackedWidget->setCurrentIndex(0);
     emit signalChangement(2);
 }
 
