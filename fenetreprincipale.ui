@@ -89,6 +89,16 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QStatusBar" name="statusbar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>571</width>
+      <height>18</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="geometry">
@@ -97,16 +107,6 @@
      <y>0</y>
      <width>4</width>
      <height>12</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>3</width>
-     <height>18</height>
     </rect>
    </property>
   </widget>

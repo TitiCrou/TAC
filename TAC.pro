@@ -21,13 +21,8 @@ SOURCES += main.cpp\
     velo.cpp \
     lesvoitures.cpp \
     lesbus.cpp \
-<<<<<<< HEAD \
-    location.cpp
-    lesvelos.cpp
-=======
     lesvelos.cpp \
     location.cpp
->>>>>>> 018b7535c772a82111810cafd301216e5a5e04fb
 
 HEADERS  += \
     ig.h \
@@ -36,15 +31,9 @@ HEADERS  += \
     voiture.h \
     bus.h \
     velo.h \
-    lesvoitures.h \
     lesbus.h \
-<<<<<<< HEAD \
-    location.h
+    location.h \
     lesvelos.h
-=======
-    lesvelos.h \
-    location.h
->>>>>>> 018b7535c772a82111810cafd301216e5a5e04fb
 
 FORMS    += \
     fenetreprincipale.ui \
