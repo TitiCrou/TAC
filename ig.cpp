@@ -9,6 +9,7 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiLoc = new Ui::FenetreLocation;
     uiProb = new Ui::FenetreProbleme;
 
+
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
     uiLoc->setupUi(this);
@@ -90,6 +91,7 @@ void IG::retourMenu() {
 
 void IG::choixVehicule() {
     uiLoc->stackedWidget->setCurrentIndex(1);
+    //location.setVehicule(uiLoc->listVehicule->currentItem());
     /*QString choix = uiLoc->listVehicule->currentItem()->text();
     QMessageBox test;
     test.setText(choix);
