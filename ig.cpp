@@ -89,10 +89,11 @@ void IG::retourMenu() {
 }
 
 void IG::choixVehicule() {
-    QString choix = uiLoc->listVehicule->currentItem()->text();
+    uiLoc->stackedWidget->setCurrentIndex(1);
+    /*QString choix = uiLoc->listVehicule->currentItem()->text();
     QMessageBox test;
     test.setText(choix);
-    test.exec();
+    test.exec();*/
 }
 
 void IG::validerAvis() {
