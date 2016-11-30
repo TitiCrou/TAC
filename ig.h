@@ -8,6 +8,7 @@
 #include "ui_fenetreprincipale.h"
 #include "ui_fenetreavis.h"
 #include "ui_fenetrelocation.h"
+#include "ui_fenetreprobleme.h"
 
 #include "lesvoitures.h"
 #include "lesbus.h"
@@ -33,17 +34,20 @@ class IG : public QMainWindow {
             void loc();
             void afficherFenetre(int index);
             void mettreAvis();
+            void mettreProbleme();
             void retourMenu();
             void choixVehicule();
             void validerAvis();
+            void validerProbleme();
             void choixCategorie();
 
         private:
             Ui::FenetrePrincipale *uiPpale;
             Ui::FenetreAvis *uiAvis;
             Ui::FenetreLocation *uiLoc;
+            Ui::FenetreProbleme *uiProb;
             QStackedWidget *stack;
-            QWidget *fdem, *favis, *floc;
+            QWidget *fdem, *favis, *floc, *fprob;
             QList<QString> listeVoiture, listeBus, listeVelo;
             LesVoitures lesVoitures;
             LesBus lesBus;
