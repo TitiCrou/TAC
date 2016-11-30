@@ -34,9 +34,11 @@ class IG : public QMainWindow {
             void loc();
             void afficherFenetre(int index);
             void mettreAvis();
+            void mettreProbleme();
             void retourMenu();
             void choixVehicule();
             void validerAvis();
+            void validerProbleme();
             void choixCategorie();
 
         private:

@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>20</y>
      <width>541</width>
      <height>411</height>
@@ -118,16 +118,6 @@
      <number>-1</number>
     </property>
    </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>571</width>
-     <height>18</height>
-    </rect>
-   </property>
   </widget>
  </widget>
  <resources/>
