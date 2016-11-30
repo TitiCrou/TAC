@@ -52,7 +52,7 @@ class IG : public QMainWindow {
             LesVoitures lesVoitures;
             LesBus lesBus;
             LesVelos lesVelos;
-            Location location;
+           // Location location;
     };
 
 
