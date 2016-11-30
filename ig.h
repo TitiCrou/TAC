@@ -13,7 +13,7 @@
 #include "lesvoitures.h"
 #include "lesbus.h"
 #include "lesvelos.h"
-
+#include "location.h"
 
 namespace Ui {
     class IG;
@@ -52,6 +52,7 @@ class IG : public QMainWindow {
             LesVoitures lesVoitures;
             LesBus lesBus;
             LesVelos lesVelos;
+           // Location location;
     };
 
 
