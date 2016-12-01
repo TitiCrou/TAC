@@ -32,6 +32,7 @@ HEADERS  += \
     voiture.h \
     bus.h \
     velo.h \
+    lesvoitures.h \
     lesbus.h \
     lesvelos.h \
     location.h \

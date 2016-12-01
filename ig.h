@@ -3,17 +3,12 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
-#include <QList>
 
 #include "ui_fenetreprincipale.h"
 #include "ui_fenetreavis.h"
 #include "ui_fenetrelocation.h"
 #include "ui_fenetreprobleme.h"
 
-#include "lesvoitures.h"
-#include "lesbus.h"
-#include "lesvelos.h"
-#include "location.h"
 
 #include "lienslocation.h"
 
@@ -38,12 +33,9 @@ class IG : public QMainWindow {
             void afficherFenetre(int index);
             void mettreAvis();
             void mettreProbleme();
-            void retourMenu();
-            void choixVehicule();
             void validerAvis();
             void validerProbleme();
-            void choixCategorie();
-            void choixDate();
+            void retourMenu();
 
         private:
             Ui::FenetrePrincipale *uiPpale;
@@ -52,10 +44,7 @@ class IG : public QMainWindow {
             Ui::FenetreProbleme *uiProb;
             QStackedWidget *stack;
             QWidget *fdem, *favis, *floc, *fprob;
-            QList<QString> listeVoiture, listeBus, listeVelo;
-            LesVoitures lesVoitures;
-            LesBus lesBus;
-            LesVelos lesVelos;
+            LiensLocation * liensLoc;
            // Location location;
     };
 
