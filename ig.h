@@ -11,7 +11,8 @@
 
 
 #include "lienslocation.h"
-
+#include "liensavis.h"
+#include "liensprobleme.h"
 
 namespace Ui {
     class IG;
@@ -33,8 +34,6 @@ class IG : public QMainWindow {
             void afficherFenetre(int index);
             void mettreAvis();
             void mettreProbleme();
-            void validerAvis();
-            void validerProbleme();
             void retourMenu();
 
 
@@ -46,6 +45,8 @@ class IG : public QMainWindow {
             QStackedWidget *stack;
             QWidget *fdem, *favis, *floc, *fprob;
             LiensLocation * liensLoc;
+            LiensAvis * liensAv;
+            LiensProbleme * liensProb;
            // Location location;
     };
 

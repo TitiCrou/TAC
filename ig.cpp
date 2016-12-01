@@ -17,7 +17,8 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiProb->setupUi(this);
 
     liensLoc = new LiensLocation(uiLoc);
-
+    liensAv = new LiensAvis(uiAvis);
+    liensProb = new LiensProbleme(uiProb);
 
     this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);
@@ -40,18 +41,10 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     connect(uiPpale->avis, SIGNAL(clicked()), this, SLOT(mettreAvis()));
     connect(uiPpale->probleme, SIGNAL(clicked()), this, SLOT(mettreProbleme()));
 
-    // Connexions uiAvis
-    connect(uiAvis->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
-    connect(uiAvis->sendAvis, SIGNAL(clicked()), this, SLOT(validerAvis()));
-    uiAvis->rate5->setChecked("TRUE");
-
-    // Connexions uiProb
-    connect(uiProb->retour_3, SIGNAL(clicked()), this, SLOT(retourMenu()));
-    connect(uiProb->sendProbleme, SIGNAL(clicked()), this, SLOT(validerProbleme()));
-
-
     //Retour menu uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
+    connect(uiAvis->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
+    connect(uiProb->retour_3, SIGNAL(clicked()), this, SLOT(retourMenu()));
 
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
 
@@ -78,29 +71,6 @@ void IG::mettreProbleme() {
 
 void IG::retourMenu() {
     emit signalChangement(0);
-}
-
-
-void IG::validerAvis() {
-    QString avis = uiAvis->zoneAvis->toPlainText();
-    //QString note = uiAvis->buttonGroup->checkedButton()->text();
-    QString note;
-    QMessageBox test;
-
-    /*if(uiAvis->buttonGroup->checkedButton()) {
-        test.setText("Veuillez selectionner une note.");
-        test.exec();
-    } else {*/
-    note = uiAvis->buttonGroup->checkedButton()->text();
-    test.setText("Note donnée : "+note+"\nAvis donné :\n"+avis);
-    test.exec();
-}
-
-void IG::validerProbleme() {
-    QString probleme = uiProb->zoneProbleme->toPlainText();
-    QMessageBox test;
-    test.setText("Problème donné :\n"+probleme);
-    test.exec();
 }
 
 
