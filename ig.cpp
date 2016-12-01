@@ -121,6 +121,7 @@ void IG::validerProbleme() {
     test.exec();
 }
 
+
 void IG::choixCategorie() {
     if(uiLoc->busButton->isChecked()) {
         uiLoc->listVehicule->clear();

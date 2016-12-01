@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     lesvoitures.cpp \
     lesbus.cpp \
     lesvelos.cpp \
-    location.cpp
+    location.cpp \
+    lienslocation.cpp
 
 HEADERS  += \
     ig.h \
@@ -33,7 +34,8 @@ HEADERS  += \
     velo.h \
     lesbus.h \
     lesvelos.h \
-    location.h
+    location.h \
+    lienslocation.h
 
 
 FORMS    += \

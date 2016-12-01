@@ -15,6 +15,9 @@
 #include "lesvelos.h"
 #include "location.h"
 
+#include "lienslocation.h"
+
+
 namespace Ui {
     class IG;
 }

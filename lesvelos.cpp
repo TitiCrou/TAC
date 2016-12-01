@@ -8,12 +8,6 @@ LesVelos::LesVelos(): LesVehicules() {
     Velo v3(27.5, "L", "ASPECT 910", "Scott", "Noire/Verte", "AB-002-AA", 2016, 23.5);
     Velo v4(27.5, "M", "SILENCE EVO", "Scott", "Blanche/Orange", "AB-003-AA", 2016, 19);
 
-    /*
-    v1.setModele("VTT Giant");
-    v2.setModele("VTC Giant");
-    v3.setModele("VTT Scott");
-    v4.setModele("VTC Scott");*/
-
     lesVehicules.push_back(v1);
     lesVehicules.push_back(v2);
     lesVehicules.push_back(v3);
