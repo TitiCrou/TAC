@@ -93,6 +93,7 @@ void IG::retourMenu() {
 }
 
 void IG::choixDate() {
+    uiLoc->stackedWidget->setCurrentIndex(0);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
 
