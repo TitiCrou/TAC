@@ -1,5 +1,6 @@
 #include "ig.h"
 #include <QMessageBox>
+#include <string>
 
 IG::IG(QWidget *parent) : QMainWindow(parent) {
 
@@ -56,6 +57,7 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     connect(uiLoc->carButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
+    connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
     uiLoc->listVehicule->addItems(listeVoiture);
     uiLoc->listVehicule->setCurrentRow(0);
 
@@ -88,6 +90,18 @@ void IG::mettreProbleme() {
 
 void IG::retourMenu() {
     emit signalChangement(0);
+}
+
+void IG::choixDate() {
+    QDate dateDebut = uiLoc->dateDebut->selectedDate();
+    QDate dateFin = uiLoc->dateFin->selectedDate();
+
+    QString sformat="dd-MM-yyyy";
+    std::string jours = std::to_string(dateDebut.daysTo(dateFin));
+    QString nbJours = jours.c_str();
+    QMessageBox test;
+    test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
+    test.exec();
 }
 
 void IG::choixVehicule() {

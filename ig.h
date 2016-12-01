@@ -40,6 +40,7 @@ class IG : public QMainWindow {
             void validerAvis();
             void validerProbleme();
             void choixCategorie();
+            void choixDate();
 
         private:
             Ui::FenetrePrincipale *uiPpale;
