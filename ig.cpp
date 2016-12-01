@@ -93,7 +93,7 @@ void IG::retourMenu() {
 }
 
 void IG::choixDate() {
-    uiLoc->stackedWidget->setCurrentIndex(0);
+    uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
 
@@ -106,7 +106,7 @@ void IG::choixDate() {
 }
 
 void IG::choixVehicule() {
-    uiLoc->stackedWidget->setCurrentIndex(1);
+    uiLoc->stackedWidget->setCurrentIndex(2);
     //location.setVehicule(uiLoc->listVehicule->currentItem());
     /*QString choix = uiLoc->listVehicule->currentItem()->text();
     QMessageBox test;
