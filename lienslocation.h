@@ -15,12 +15,8 @@
 
 class LiensLocation : public QObject {
 
-signals:
-    void signalChangement(int);
-
-public slots:
-    void afficherFenetre(int index);
-
+    Q_OBJECT
+protected slots:
     void choixDate();
     void choixVehicule();
     void choixCategorie();

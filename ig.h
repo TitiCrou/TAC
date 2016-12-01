@@ -37,6 +37,7 @@ class IG : public QMainWindow {
             void validerProbleme();
             void retourMenu();
 
+
         private:
             Ui::FenetrePrincipale *uiPpale;
             Ui::FenetreAvis *uiAvis;

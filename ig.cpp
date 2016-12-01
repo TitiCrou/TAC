@@ -10,13 +10,14 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiLoc = new Ui::FenetreLocation;
     uiProb = new Ui::FenetreProbleme;
 
-    liensLoc = new LiensLocation(uiLoc);
 
-
+    uiLoc->setupUi(this);
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
-    uiLoc->setupUi(this);
     uiProb->setupUi(this);
+
+    liensLoc = new LiensLocation(uiLoc);
+
 
     this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);

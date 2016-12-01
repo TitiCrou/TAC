@@ -8,7 +8,6 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     this->uiLoc = ui;
 
-
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
     }
@@ -19,15 +18,17 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
         listeVelo << lesVelos.toQString(i);
     }
 
+
     // Connexions uiLoc
     connect(uiLoc->chooseButton, SIGNAL(clicked()), this, SLOT(choixVehicule()));
     connect(uiLoc->carButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
-    uiLoc->listVehicule->addItems(listeVoiture);
-    uiLoc->listVehicule->setCurrentRow(0);
+    //uiLoc->listVehicule->addItems(listeVoiture);
+    //uiLoc->listVehicule->setCurrentRow(0);
 }
+
 
 void LiensLocation::choixDate() {
     uiLoc->stackedWidget->setCurrentIndex(1);
