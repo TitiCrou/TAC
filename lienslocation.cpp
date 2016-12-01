@@ -25,8 +25,8 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
-    //uiLoc->listVehicule->addItems(listeVoiture);
-    //uiLoc->listVehicule->setCurrentRow(0);
+    uiLoc->listVehicule->addItems(listeVoiture);
+    uiLoc->listVehicule->setCurrentRow(0);
 }
 
 
