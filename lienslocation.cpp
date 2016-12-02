@@ -37,6 +37,7 @@ void LiensLocation::choixDate() {
 
     QString sformat="dd-MM-yyyy";
     std::string jours = "" + dateDebut.daysTo(dateFin);
+    //std::string jours = std::to_string(  dateDebut.daysTo(dateFin));
     QString nbJours = jours.c_str();
     QMessageBox test;
     test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
