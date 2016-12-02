@@ -1,8 +1,13 @@
 #include "lienslocation.h"
+#include <string.h>
+
+#include<sstream>
 
 LiensLocation::LiensLocation() {
 
 }
+
+
 
 LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
@@ -36,8 +41,10 @@ void LiensLocation::choixDate() {
     QDate dateFin = uiLoc->dateFin->selectedDate();
 
     QString sformat="dd-MM-yyyy";
-    std::string jours = "" + dateDebut.daysTo(dateFin);
-    //std::string jours = std::to_string(  dateDebut.daysTo(dateFin));
+    //std::string jours = "" + dateDebut.daysTo(dateFin);
+    std::ostringstream os ;
+    os << dateDebut.daysTo(dateFin) ;
+    std::string jours = os.str() ;
     QString nbJours = jours.c_str();
     QMessageBox test;
     test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
