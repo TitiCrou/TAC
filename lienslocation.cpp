@@ -7,6 +7,7 @@ LiensLocation::LiensLocation() {
 LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     this->uiLoc = ui;
+    location = new Location();
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -36,8 +37,8 @@ void LiensLocation::choixDate() {
     QDate dateFin = uiLoc->dateFin->selectedDate();
 
     QString sformat="dd-MM-yyyy";
-    std::string jours = "" + dateDebut.daysTo(dateFin);
-    //std::string jours = std::to_string(  dateDebut.daysTo(dateFin));
+    //std::string jours = "" + dateDebut.daysTo(dateFin);
+    std::string jours = std::to_string(  dateDebut.daysTo(dateFin));
     QString nbJours = jours.c_str();
     QMessageBox test;
     test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
@@ -46,11 +47,21 @@ void LiensLocation::choixDate() {
 
 void LiensLocation::choixVehicule() {
     uiLoc->stackedWidget->setCurrentIndex(2);
-    //location.setVehicule(uiLoc->listVehicule->currentItem());
-    /*QString choix = uiLoc->listVehicule->currentItem()->text();
+    int index = uiLoc->listVehicule->currentIndex().row();
+
+    if(uiLoc->busButton->isChecked()) {
+        location->setVehicule(lesBus.getVehicule(index));
+    } else if(uiLoc->bikeButton->isChecked()) {
+        location->setVehicule(lesVelos.getVehicule(index));
+    } else if(uiLoc->carButton->isChecked()) {
+        location->setVehicule(lesVoitures.getVehicule(index));
+    }
+
+
+    QString choix = location->getVehicule().toQStringDetail();
     QMessageBox test;
     test.setText(choix);
-    test.exec();*/
+    test.exec();
 }
 
 void LiensLocation::choixCategorie() {

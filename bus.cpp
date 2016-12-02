@@ -11,8 +11,33 @@ Bus::Bus(int km, int cap, double height, double weight, std::string mod, std::st
     poids = weight;
 }
 
-QString Bus::toQString() {
-    return QString(this->getModele().c_str());
+int Bus::getKilo() {
+    return kilometrage;
 }
+
+int Bus::getCapacite() {
+    return capacite;
+}
+
+double Bus::getHauteur() {
+    return hauteur;
+}
+
+double Bus::getPoids() {
+    return poids;
+}
+
+QString Bus::toQStringDetail() {
+    return QString((this->getMarque()+"\n"
+                    +this->getModele()+"\n"
+                    +this->getCouleur()+"\n"
+                    +std::to_string(this->getPrix())+"\n"
+                    +std::to_string(this->getAnnee())+"\n"
+                    +std::to_string(this->getKilo())+"\n"
+                    +std::to_string(this->getCapacite())+"\n"
+                    +std::to_string(this->getHauteur())+"\n"
+                    +std::to_string(this->getPoids())).c_str());
+}
+
 
 
