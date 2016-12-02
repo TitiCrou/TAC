@@ -8,7 +8,9 @@ class Voiture : public Vehicule {
 public:
     Voiture();
     Voiture(int km, int power, std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
-    QString toQString();
+    QString toQStringDetail();
+    int getKilo();
+    int getPuissance();
 
 protected:
     int kilometrage, puissance;

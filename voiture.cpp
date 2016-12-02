@@ -9,6 +9,21 @@ Voiture::Voiture(int km, int power, std::string mod, std::string marq, std::stri
     puissance = power;
 }
 
-QString Voiture::toQString() {
-    return QString(this->getModele().c_str());
+int Voiture::getKilo() {
+    return kilometrage;
+}
+
+int Voiture::getPuissance() {
+    return puissance;
+}
+
+QString Voiture::toQStringDetail() {
+
+    return QString((this->getMarque()+"\n"
+                    +this->getModele()+"\n"
+                    +this->getCouleur()+"\n"
+                    /*+std::to_string(this->getPrix())+"\n"
+                    +std::to_string(this->getAnnee())+"\n"
+                    +std::to_string(this->getKilo())+"\n"
+                    +std::to_string(this->getPuissance())*/).c_str());
 }

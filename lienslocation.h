@@ -7,7 +7,7 @@
 #include <QMessageBox>
 #include <QList>
 
-
+#include "lesvehicules.h"
 #include "lesvoitures.h"
 #include "lesbus.h"
 #include "lesvelos.h"
@@ -29,6 +29,7 @@ public:
 private:
     Ui::FenetreLocation *uiLoc;
     QList<QString> listeVoiture, listeBus, listeVelo;
+    Location *location;
     LesVoitures lesVoitures;
     LesBus lesBus;
     LesVelos lesVelos;

@@ -9,8 +9,22 @@ Velo::Velo(double pneu, std::string size, std::string mod, std::string marq, std
     taille = size;
 }
 
-QString Velo::toQString() {
-   return QString(this->getModele().c_str());
+double Velo::getTaillePneu() {
+    return taillePneu;
+}
+
+std::string Velo::getTaille() {
+    return taille;
+}
+
+QString Velo::toQStringDetail() {
+    return QString((this->getMarque()+"\n"
+                    +this->getModele()+"\n"
+                    +this->getCouleur()+"\n"
+                    /*+std::to_string(this->getPrix())+"\n"
+                    +std::to_string(this->getAnnee())+"\n"
+                    +std::to_string(this->getTaillePneu())+"\n"
+                    +this->getTaille()*/).c_str());
 }
 
 
