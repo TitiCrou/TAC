@@ -42,9 +42,7 @@ void LiensLocation::choixDate() {
     QDate dateFin = uiLoc->dateFin->selectedDate();
 
     QString sformat="dd-MM-yyyy";
-    std::ostringstream os ;
-    os << dateDebut.daysTo(dateFin) ;
-    std::string jours = os.str() ;
+    std::string jours = patch::to_string(dateDebut.daysTo(dateFin)) ;
     QString nbJours = jours.c_str();
     QMessageBox test;
     test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
@@ -65,9 +63,10 @@ void LiensLocation::choixVehicule() {
 
 
     QString choix = location->getVehicule().toQStringDetail();
-    QMessageBox test;
+    uiLoc->fiche->setText(choix);
+    /*QMessageBox test;
     test.setText(choix);
-    test.exec();
+    test.exec();*/
 }
 
 void LiensLocation::choixCategorie() {

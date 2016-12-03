@@ -45,7 +45,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="choixDate">
      <widget class="QPushButton" name="validationDate">
@@ -225,14 +225,28 @@
      <widget class="QLabel" name="fiche">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>280</x>
         <y>110</y>
-        <width>241</width>
+        <width>121</width>
         <height>181</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignTop</set>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>0</number>
       </property>
      </widget>
      <widget class="QPushButton" name="validationChoix">
@@ -246,6 +260,37 @@
       </property>
       <property name="text">
        <string>Valider</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fiche_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>110</y>
+        <width>61</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Marque
+Modèle
+Couleur
+Prix
+Année</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignJustify|Qt::AlignTop</set>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>0</number>
       </property>
      </widget>
     </widget>

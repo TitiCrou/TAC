@@ -13,6 +13,8 @@
 #include "lesvelos.h"
 #include "location.h"
 
+#include "tostring.h"
+
 class LiensLocation : public QObject {
 
     Q_OBJECT

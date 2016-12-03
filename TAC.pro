@@ -40,7 +40,8 @@ HEADERS  += \
     location.h \
     lienslocation.h \
     liensavis.h \
-    liensprobleme.h
+    liensprobleme.h \
+    tostring.h
 
 
 FORMS    += \

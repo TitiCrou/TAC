@@ -1,4 +1,5 @@
 #include "vehicule.h"
+#include "tostring.h"
 
 Vehicule::Vehicule() {
 }
@@ -62,6 +63,15 @@ void Vehicule::setPrix(double price) {
 
 QString Vehicule::toQString() {
    return QString((this->getMarque()+" "+this->getModele()).c_str());
+}
+
+
+QString Vehicule::toQStringDetail() {
+    return QString((this->getMarque()+"\n"
+                    +this->getModele()+"\n"
+                    +this->getCouleur()+"\n"
+                    +patch::to_string(this->getPrix())+"€\n"
+                    +patch::to_string(this->getAnnee())).c_str());
 }
 
 Vehicule::~Vehicule() {

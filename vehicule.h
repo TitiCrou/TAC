@@ -9,7 +9,7 @@ class Vehicule {
 
 public:
     Vehicule();
-    Vehicule(std::string mod, std::string marq, std::string color, std::string id, int an, double price);
+    Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
     ~Vehicule();
 
     std::string getModele(), getMarque(), getCouleur(), getId();
