@@ -9,7 +9,8 @@ public:
     Velo();
     Velo(double pneu, std::string size, std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
     QString toQStringDetail();
-    static QString attributsFicheDetail();
+    QString attributsFicheDetail();
+
     double getTaillePneu();
     std::string getTaille();
 

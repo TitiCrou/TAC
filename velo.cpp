@@ -30,6 +30,6 @@ QString Velo::toQStringDetail() {
                     +this->getTaille()).c_str());
 }
 
-static QString Velo::attributsFicheDetail() {
+QString Velo::attributsFicheDetail() {
     return QString ("Marque\nModèle\nCouleur\nPrix\nAnnée\nTaille des pneus\nTaille");
 }

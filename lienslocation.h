@@ -22,6 +22,7 @@ protected slots:
     void choixDate();
     void choixVehicule();
     void choixCategorie();
+    void retourPagePrecedente();
 
 public:
     LiensLocation();

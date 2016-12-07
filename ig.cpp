@@ -44,10 +44,10 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     connect(uiPpale->avis, SIGNAL(clicked()), this, SLOT(mettreAvis()));
     connect(uiPpale->probleme, SIGNAL(clicked()), this, SLOT(mettreProbleme()));
 
-    //Retour menu uiLoc
-    connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
-    connect(uiAvis->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
-    connect(uiProb->retour_3, SIGNAL(clicked()), this, SLOT(retourMenu()));
+    //Retour menu
+    connect(uiLoc->menu, SIGNAL(clicked()), this, SLOT(retourMenu()));
+    connect(uiAvis->menu, SIGNAL(clicked()), this, SLOT(retourMenu()));
+    connect(uiProb->menu, SIGNAL(clicked()), this, SLOT(retourMenu()));
 
     // Connexions uiConnex
     connect(uiConnex->adminCo, SIGNAL(clicked()), this, SLOT(adminChoice()));
@@ -59,11 +59,12 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
 
 void IG::loc() {
     uiLoc->stackedWidget->setCurrentIndex(0);
+    uiLoc->retour->hide();
     emit signalChangement(2);
 }
 
 void IG::adminChoice() {
-    //this->setCentralWidget(stack);
+    this->setCentralWidget(stack);
 }
 
 void IG::clientChoice() {
@@ -71,9 +72,7 @@ void IG::clientChoice() {
 }
 
 void IG::afficherFenetre(int index) {
-    if (index >= 0) {
-        stack->setCurrentIndex(index);
-    }
+    stack->setCurrentIndex(index);
 }
 
 void IG::mettreAvis() {

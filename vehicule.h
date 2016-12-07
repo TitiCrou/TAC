@@ -24,7 +24,7 @@ public:
 
     QString toQString();
     virtual QString toQStringDetail() = 0;
-    static virtual QString attributsFicheDetail() = 0;
+    virtual QString attributsFicheDetail() = 0;
 
 
 protected:

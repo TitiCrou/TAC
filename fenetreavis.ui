@@ -46,7 +46,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="retour">
+   <widget class="QPushButton" name="menu">
     <property name="geometry">
      <rect>
       <x>10</x>

@@ -31,12 +31,17 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
+
+    //Retour page précédente uiLoc
+    connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourPagePrecedente()));
+
     uiLoc->listVehicule->addItems(listeVoiture);
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
 
 void LiensLocation::choixDate() {
+    uiLoc->retour->show();
     uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
@@ -62,7 +67,8 @@ void LiensLocation::choixVehicule() {
         location->setVehicule(lesVoitures.getVehicule(index));
     }
 
-
+    QString attributs = location->getVehicule()->attributsFicheDetail();
+    uiLoc->attributs->setText(attributs);
     QString choix = location->getVehicule()->toQStringDetail();
     uiLoc->fiche->setText(choix);
     /*QMessageBox test;
@@ -84,6 +90,16 @@ void LiensLocation::choixCategorie() {
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
+
+void LiensLocation::retourPagePrecedente() {
+    int pos = uiLoc->stackedWidget->currentIndex();
+    if (pos > 0) {
+        if (pos-1 == 0) {
+            uiLoc->retour->hide();
+        }
+        uiLoc->stackedWidget->setCurrentIndex(pos-1);
+    }
+}
 
 LiensLocation::~LiensLocation() {
 
