@@ -9,12 +9,14 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     uiAvis = new Ui::FenetreAvis;
     uiLoc = new Ui::FenetreLocation;
     uiProb = new Ui::FenetreProbleme;
+    uiConnex = new Ui::FenetreConnexion;
 
 
     uiLoc->setupUi(this);
     uiPpale->setupUi(this);
     uiAvis->setupUi(this);
     uiProb->setupUi(this);
+    uiConnex->setupUi(this);
 
     liensLoc = new LiensLocation(uiLoc);
     liensAv = new LiensAvis(uiAvis);
@@ -23,18 +25,19 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);
 
-
+    fconnex = uiConnex->centralWidget;
     fdem = uiPpale->centralWidget;
     favis = uiAvis->centralWidget;
     floc = uiLoc->centralWidget;
     fprob = uiProb->centralWidget;
+
 
     stack->addWidget(fdem);
     stack->addWidget(favis);
     stack->addWidget(floc);
     stack->addWidget(fprob);
 
-    this->setCentralWidget(stack);
+    this->setCentralWidget(uiConnex->centralWidget);
 
     // Connexions uiPpale
     connect(uiPpale->askLocation, SIGNAL(clicked()), this, SLOT(loc()));
@@ -46,6 +49,10 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     connect(uiAvis->retour, SIGNAL(clicked()), this, SLOT(retourMenu()));
     connect(uiProb->retour_3, SIGNAL(clicked()), this, SLOT(retourMenu()));
 
+    // Connexions uiConnex
+    connect(uiConnex->adminCo, SIGNAL(clicked()), this, SLOT(adminChoice()));
+    connect(uiConnex->clientCo, SIGNAL(clicked()), this, SLOT(clientChoice()));
+
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
 
 }
@@ -53,6 +60,14 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
 void IG::loc() {
     uiLoc->stackedWidget->setCurrentIndex(0);
     emit signalChangement(2);
+}
+
+void IG::adminChoice() {
+    //this->setCentralWidget(stack);
+}
+
+void IG::clientChoice() {
+    this->setCentralWidget(stack);
 }
 
 void IG::afficherFenetre(int index) {
