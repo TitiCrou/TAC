@@ -30,3 +30,7 @@ QString Voiture::toQStringDetail() {
                     +patch::to_string(this->getKilo())+"\n"
                     +patch::to_string(this->getPuissance())).c_str());
 }
+
+static QString Bus::attributsFicheDetail() {
+    return QString ("Marque\nModèle\nCouleur\nPrix\nAnnée\nKilométrage\nPuissance\n");
+}

@@ -262,7 +262,7 @@
        <string>Valider</string>
       </property>
      </widget>
-     <widget class="QLabel" name="fiche_2">
+     <widget class="QLabel" name="attributs">
       <property name="geometry">
        <rect>
         <x>200</x>
@@ -277,11 +277,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Marque
-Modèle
-Couleur
-Prix
-Année</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignJustify|Qt::AlignTop</set>

@@ -23,7 +23,9 @@ public:
     void setPrix(double price);
 
     QString toQString();
-    virtual QString toQStringDetail();
+    virtual QString toQStringDetail() = 0;
+    static virtual QString attributsFicheDetail() = 0;
+
 
 protected:
     std::string modele, marque, couleur, id;

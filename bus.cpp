@@ -42,5 +42,8 @@ QString Bus::toQStringDetail() {
                     +patch::to_string(this->getPoids())).c_str());
 }
 
+static QString Bus::attributsFicheDetail() {
+    return QString ("Marque\nModèle\nCouleur\nPrix\nAnnée\nKilométrage\nCapacité\nHauteur\nPoids\n");
+}
 
 
