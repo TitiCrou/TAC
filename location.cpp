@@ -5,14 +5,14 @@ Location::Location()
 
 }
 
-Location::Location(Vehicule v,float p,bool o){
+Location::Location(Vehicule * v,float p,bool o){
     vehicule = v;
     prix = p;
     option = o;
 }
 
 
- Vehicule Location::getVehicule(){
+ Vehicule * Location::getVehicule(){
     return vehicule;
 }
 
@@ -24,7 +24,7 @@ Location::Location(Vehicule v,float p,bool o){
      return option;
  }
 
- void Location::setVehicule(Vehicule v){
+ void Location::setVehicule(Vehicule * v){
      vehicule = v;
  }
 

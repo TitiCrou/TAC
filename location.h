@@ -7,19 +7,21 @@ class Location
 {
 public:
     Location();
-    Location(Vehicule v,float p,bool o);
+    Location(Vehicule * v,float p,bool o);
 
-    Vehicule getVehicule();
+    Vehicule * getVehicule();
     float getPrix();
     bool getOption();
 
-    void setVehicule(Vehicule v), setPrix(float f), setOption(bool o);
+    void setVehicule(Vehicule * v);
+    void setPrix(float f);
+    void setOption(bool o);
 
     QString toQstring();
     ~Location();
 
 protected:
-    Vehicule vehicule;
+    Vehicule * vehicule;
     float prix;
     bool option;
 

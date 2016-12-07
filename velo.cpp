@@ -1,5 +1,7 @@
 #include "velo.h"
 
+#include "tostring.h"
+
 Velo::Velo() : Vehicule() {
 
 }
@@ -22,10 +24,10 @@ QString Velo::toQStringDetail() {
     return QString((this->getMarque()+"\n"
                     +this->getModele()+"\n"
                     +this->getCouleur()+"\n"
-                    /*+std::to_string(this->getPrix())+"\n"
-                    +std::to_string(this->getAnnee())+"\n"
-                    +std::to_string(this->getTaillePneu())+"\n"
-                    +this->getTaille()*/).c_str());
+                    +patch::to_string(this->getPrix())+"\n"
+                    +patch::to_string(this->getAnnee())+"\n"
+                    +patch::to_string(this->getTaillePneu())+"\n"
+                    +this->getTaille()).c_str());
 }
 
 

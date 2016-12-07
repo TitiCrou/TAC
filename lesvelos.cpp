@@ -3,10 +3,10 @@
 LesVelos::LesVelos(): LesVehicules() {
 
     //Velo(double pneu, std::string size, std::string mod, std::string marq, std::string color, std::string immat);
-    Velo v1(27.5, "M", "ATX1", "Giant", "Noire/Orange", "AB-000-AA", 2016, 25);
-    Velo v2(27.5, "M", "ROAM 4", "Giant", "Noire", "AB-001-AA", 2016, 20);
-    Velo v3(27.5, "L", "ASPECT 910", "Scott", "Noire/Verte", "AB-002-AA", 2016, 23.5);
-    Velo v4(27.5, "M", "SILENCE EVO", "Scott", "Blanche/Orange", "AB-003-AA", 2016, 19);
+    Velo * v1 = new Velo(27.5, "M", "ATX1", "Giant", "Noire/Orange", "AB-000-AA", 2016, 25);
+    Velo * v2 = new Velo(27.5, "M", "ROAM 4", "Giant", "Noire", "AB-001-AA", 2016, 20);
+    Velo * v3 = new Velo(27.5, "L", "ASPECT 910", "Scott", "Noire/Verte", "AB-002-AA", 2016, 23.5);
+    Velo * v4 = new Velo(27.5, "M", "SILENCE EVO", "Scott", "Blanche/Orange", "AB-003-AA", 2016, 19);
 
     lesVehicules.push_back(v1);
     lesVehicules.push_back(v2);
