@@ -1,5 +1,7 @@
 #include "voiture.h"
 
+#include "tostring.h"
+
 Voiture::Voiture() : Vehicule() {
 
 }
@@ -23,8 +25,8 @@ QString Voiture::toQStringDetail() {
     return QString((this->getMarque()+"\n"
                     +this->getModele()+"\n"
                     +this->getCouleur()+"\n"
-                    /*+std::to_string(this->getPrix())+"\n"
-                    +std::to_string(this->getAnnee())+"\n"
-                    +std::to_string(this->getKilo())+"\n"
-                    +std::to_string(this->getPuissance())*/).c_str());
+                    +patch::to_string(this->getPrix())+"\n"
+                    +patch::to_string(this->getAnnee())+"\n"
+                    +patch::to_string(this->getKilo())+"\n"
+                    +patch::to_string(this->getPuissance())).c_str());
 }

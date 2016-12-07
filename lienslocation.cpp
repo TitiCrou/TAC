@@ -49,6 +49,7 @@ void LiensLocation::choixDate() {
     test.exec();
 }
 
+
 void LiensLocation::choixVehicule() {
     uiLoc->stackedWidget->setCurrentIndex(2);
     int index = uiLoc->listVehicule->currentIndex().row();
@@ -62,7 +63,7 @@ void LiensLocation::choixVehicule() {
     }
 
 
-    QString choix = location->getVehicule().toQStringDetail();
+    QString choix = location->getVehicule()->toQStringDetail();
     uiLoc->fiche->setText(choix);
     /*QMessageBox test;
     test.setText(choix);

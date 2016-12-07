@@ -1,5 +1,7 @@
 #include "bus.h"
 
+#include "tostring.h"
+
 Bus::Bus() : Vehicule() {
 
 }
@@ -32,12 +34,12 @@ QString Bus::toQStringDetail() {
     return QString((this->getMarque()+"\n"
                     +this->getModele()+"\n"
                     +this->getCouleur()+"\n"
-                    /*+std::to_string(this->getPrix())+"\n"
-                    +std::to_string(this->getAnnee())+"\n"
-                    +std::to_string(this->getKilo())+"\n"
-                    +std::to_string(this->getCapacite())+"\n"
-                    +std::to_string(this->getHauteur())+"\n"
-                    +std::to_string(this->getPoids())*/).c_str());
+                    +patch::to_string(this->getPrix())+"\n"
+                    +patch::to_string(this->getAnnee())+"\n"
+                    +patch::to_string(this->getKilo())+"\n"
+                    +patch::to_string(this->getCapacite())+"\n"
+                    +patch::to_string(this->getHauteur())+"\n"
+                    +patch::to_string(this->getPoids())).c_str());
 }
 
 

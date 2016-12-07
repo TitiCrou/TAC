@@ -9,13 +9,13 @@ int LesVehicules::size() {
 }
 
 /* getters des véhicules */
-Vehicule LesVehicules::getVehicule (int index) {
+Vehicule * LesVehicules::getVehicule (int index) {
     return lesVehicules.at(index);
 }
 
 /* transformation en QString */
 QString LesVehicules::toQString(int index) {
-    return QString(this->getVehicule(index).toQString());
+    return QString(this->getVehicule(index)->toQString());
 }
 
 
