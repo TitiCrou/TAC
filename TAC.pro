@@ -48,4 +48,5 @@ FORMS    += \
     fenetreprincipale.ui \
     fenetreavis.ui \
     fenetrelocation.ui \
-    fenetreprobleme.ui
+    fenetreprobleme.ui \
+    fenetreconnexion.ui

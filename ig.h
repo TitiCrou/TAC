@@ -8,6 +8,7 @@
 #include "ui_fenetreavis.h"
 #include "ui_fenetrelocation.h"
 #include "ui_fenetreprobleme.h"
+#include "ui_fenetreconnexion.h"
 
 
 #include "lienslocation.h"
@@ -35,6 +36,8 @@ class IG : public QMainWindow {
             void mettreAvis();
             void mettreProbleme();
             void retourMenu();
+            void adminChoice();
+            void clientChoice();
 
 
         private:
@@ -42,8 +45,9 @@ class IG : public QMainWindow {
             Ui::FenetreAvis *uiAvis;
             Ui::FenetreLocation *uiLoc;
             Ui::FenetreProbleme *uiProb;
+            Ui::FenetreConnexion *uiConnex;
             QStackedWidget *stack;
-            QWidget *fdem, *favis, *floc, *fprob;
+            QWidget *fdem, *favis, *floc, *fprob, *fconnex;
             LiensLocation * liensLoc;
             LiensAvis * liensAv;
             LiensProbleme * liensProb;

@@ -12,7 +12,6 @@ public:
     Vehicule * getVehicule();
     float getPrix();
     bool getOption();
-
     void setVehicule(Vehicule * v);
     void setPrix(float f);
     void setOption(bool o);
