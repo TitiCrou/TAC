@@ -13,7 +13,9 @@ public:
     float getPrix();
     bool getOption();
 
-    void setVehicule(Vehicule v), setPrix(float f), setOption(bool o);
+    void setVehicule(Vehicule v);
+    void setPrix(float f);
+    void setOption(bool o);
 
     QString toQstring();
     ~Location();
