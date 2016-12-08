@@ -32,5 +32,5 @@ QString Voiture::toQStringDetail() {
 }
 
 QString Voiture::attributsFicheDetail() {
-    return QString ("Marque\nModèle\nCouleur\nPrix\nAnnée\nKilométrage\nPuissance\n");
+    return QString ("Marque\nModèle\nCouleur\nPrix (€)\nAnnée\nKilométrage\nPuissance\n");
 }

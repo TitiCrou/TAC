@@ -31,5 +31,5 @@ QString Velo::toQStringDetail() {
 }
 
 QString Velo::attributsFicheDetail() {
-    return QString ("Marque\nModèle\nCouleur\nPrix\nAnnée\nTaille des pneus\nTaille");
+    return QString ("Marque\nModèle\nCouleur\nPrix (€)\nAnnée\nPneus (\")\nTaille");
 }

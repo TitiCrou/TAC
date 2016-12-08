@@ -36,6 +36,7 @@ private:
     LesVoitures lesVoitures;
     LesBus lesBus;
     LesVelos lesVelos;
+    int nbJours;
 };
 
 #endif // LIENSLOCATION_H

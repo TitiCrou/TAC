@@ -13,6 +13,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     this->uiLoc = ui;
     location = new Location();
+    nbJours = 0;
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -45,13 +46,15 @@ void LiensLocation::choixDate() {
     uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
+    nbJours = dateDebut.daysTo(dateFin);
 
-    QString sformat="dd-MM-yyyy";
-    std::string jours = patch::to_string(dateDebut.daysTo(dateFin)) ;
+    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin)) ;
+
+    /*QString sformat="dd-MM-yyyy";
     QString nbJours = jours.c_str();
     QMessageBox test;
     test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
-    test.exec();
+    test.exec();*/
 }
 
 
@@ -67,13 +70,19 @@ void LiensLocation::choixVehicule() {
         location->setVehicule(lesVoitures.getVehicule(index));
     }
 
+    int prixDeBase = location->getVehicule()->getPrix();
+    location->getVehicule()->setPrix(prixDeBase*nbJours);
+
+    QMessageBox test;
+    test.setText((std::to_string(prixDeBase*nbJours)).c_str());
+    test.exec();
+
+
     QString attributs = location->getVehicule()->attributsFicheDetail();
     uiLoc->attributs->setText(attributs);
     QString choix = location->getVehicule()->toQStringDetail();
     uiLoc->fiche->setText(choix);
-    /*QMessageBox test;
-    test.setText(choix);
-    test.exec();*/
+
 }
 
 void LiensLocation::choixCategorie() {
