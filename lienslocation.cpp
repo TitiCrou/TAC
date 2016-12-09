@@ -102,6 +102,7 @@ void LiensLocation::choixCategorie() {
 }
 
 void LiensLocation::validationChoix() {
+    uiLoc->stackedWidget->setCurrentIndex(3);
     int prixDeBase = location->getVehicule()->getPrix();
     int option=0;
 
