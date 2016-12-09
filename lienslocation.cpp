@@ -74,7 +74,7 @@ void LiensLocation::choixVehicule() {
     location->getVehicule()->setPrix(prixDeBase*nbJours);
 
     QMessageBox test;
-    test.setText((std::to_string(prixDeBase*nbJours)).c_str());
+    test.setText((patch::to_string(prixDeBase*nbJours)).c_str());
     test.exec();
 
 
