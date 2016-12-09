@@ -49,7 +49,7 @@ void LiensLocation::choixDate() {
     QDate dateFin = uiLoc->dateFin->selectedDate();
     nbJours = dateDebut.daysTo(dateFin);
 
-    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin)) ;
+    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin));
 
     /*QString sformat="dd-MM-yyyy";
     QString nbJours = jours.c_str();
@@ -80,13 +80,6 @@ void LiensLocation::choixVehicule() {
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
 
-
-
-    /*QMessageBox test;
-    test.setText((std::to_string(prixDeBase*nbJours)).c_str());
-    test.exec();*/
-
-
     QString attributs = location->getVehicule()->attributsFicheDetail();
     uiLoc->attributs->setText(attributs);
     QString choix = location->getVehicule()->toQStringDetail();
@@ -110,7 +103,18 @@ void LiensLocation::choixCategorie() {
 
 void LiensLocation::validationChoix() {
     int prixDeBase = location->getVehicule()->getPrix();
-    location->setPrix(prixDeBase*nbJours);
+    int option=0;
+
+    if(uiLoc->avecOption->isChecked()) {
+        option = location->getVehicule()->getPrixOption();;
+    }
+
+    location->setPrix((prixDeBase*nbJours)+(option*nbJours));
+
+    QString testString = std::to_string((int)location->getPrix()).c_str();
+    QMessageBox test;
+    test.setText("Prix de la loc : "+testString+"€");
+    test.exec();
 }
 
 void LiensLocation::retourPagePrecedente() {
