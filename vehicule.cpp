@@ -4,7 +4,7 @@
 Vehicule::Vehicule() {
 }
 
-Vehicule::Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, double price) {
+Vehicule::Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, int price) {
     modele = mod;
     marque = marq;
     couleur = color;
@@ -33,8 +33,12 @@ int Vehicule::getAnnee() {
     return annee;
 }
 
-double Vehicule::getPrix() {
+int Vehicule::getPrix() {
     return prix;
+}
+
+int Vehicule::getPrixOption() {
+    return prixOption;
 }
 
 void Vehicule::setModele (std::string mod) {
@@ -57,21 +61,12 @@ void Vehicule::setAnnee(int an) {
     annee = an;
 }
 
-void Vehicule::setPrix(double price) {
+void Vehicule::setPrix(int price) {
     prix = price;
 }
 
 QString Vehicule::toQString() {
    return QString((this->getMarque()+" "+this->getModele()).c_str());
-}
-
-
-QString Vehicule::toQStringDetail() {
-    return QString((this->getMarque()+"\n"
-                    +this->getModele()+"\n"
-                    +this->getCouleur()+"\n"
-                    +patch::to_string(this->getPrix())+"€\n"
-                    +patch::to_string(this->getAnnee())).c_str());
 }
 
 Vehicule::~Vehicule() {

@@ -23,6 +23,7 @@ protected slots:
     void choixVehicule();
     void choixCategorie();
     void retourPagePrecedente();
+    void validationChoix();
 
 public:
     LiensLocation();

@@ -9,18 +9,19 @@ class Vehicule {
 
 public:
     Vehicule();
-    Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
+    Vehicule(std::string mod, std::string marq, std::string color, std::string immat, int an, int price);
     ~Vehicule();
 
     std::string getModele(), getMarque(), getCouleur(), getId();
     int getAnnee();
-    double getPrix();
+    int getPrix();
+    int getPrixOption();
     void setModele (std::string mod);
     void setMarque (std::string marq);
     void setCouleur (std::string color);
     void setId (std::string id);
     void setAnnee(int an);
-    void setPrix(double price);
+    void setPrix(int price);
 
     QString toQString();
     virtual QString toQStringDetail() = 0;
@@ -30,7 +31,7 @@ public:
 protected:
     std::string modele, marque, couleur, id;
     int annee;
-    double prix;
+    int prix, prixOption;
 
 };
 #endif // VEHICULE_H

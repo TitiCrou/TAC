@@ -32,6 +32,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
+    connect(uiLoc->validationChoix, SIGNAL(clicked()), this, SLOT(validationChoix()));
 
     //Retour page précédente uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourPagePrecedente()));
@@ -64,18 +65,26 @@ void LiensLocation::choixVehicule() {
 
     if(uiLoc->busButton->isChecked()) {
         location->setVehicule(lesBus.getVehicule(index));
+        QString option = std::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans chauffeur");
+        uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
         location->setVehicule(lesVelos.getVehicule(index));
+        QString option = std::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans assistance");
+        uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
         location->setVehicule(lesVoitures.getVehicule(index));
+        QString option = std::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans chauffeur");
+        uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
 
-    int prixDeBase = location->getVehicule()->getPrix();
-    location->setPrix(prixDeBase*nbJours);
 
-    QMessageBox test;
+
+    /*QMessageBox test;
     test.setText((std::to_string(prixDeBase*nbJours)).c_str());
-    test.exec();
+    test.exec();*/
 
 
     QString attributs = location->getVehicule()->attributsFicheDetail();
@@ -99,6 +108,10 @@ void LiensLocation::choixCategorie() {
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
+void LiensLocation::validationChoix() {
+    int prixDeBase = location->getVehicule()->getPrix();
+    location->setPrix(prixDeBase*nbJours);
+}
 
 void LiensLocation::retourPagePrecedente() {
     int pos = uiLoc->stackedWidget->currentIndex();

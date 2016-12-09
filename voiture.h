@@ -7,7 +7,7 @@ class Voiture : public Vehicule {
 
 public:
     Voiture();
-    Voiture(int km, int power, std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
+    Voiture(int km, int power, std::string mod, std::string marq, std::string color, std::string immat, int an, int price);
     QString toQStringDetail();
     QString attributsFicheDetail();
     int getKilo();
@@ -15,7 +15,6 @@ public:
 
 protected:
     int kilometrage, puissance;
-
 };
 
 #endif // VOITURE_H

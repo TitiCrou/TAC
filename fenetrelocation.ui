@@ -45,7 +45,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="choixDate">
      <widget class="QPushButton" name="validationDate">
@@ -253,7 +253,7 @@
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>320</y>
+        <y>340</y>
         <width>113</width>
         <height>32</height>
        </rect>
@@ -287,6 +287,35 @@
       </property>
       <property name="indent">
        <number>0</number>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="sansOption">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>310</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="avecOption">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>310</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>

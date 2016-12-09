@@ -7,7 +7,7 @@ class Bus : public Vehicule {
 
 public:
     Bus();
-    Bus(int km, int cap, double height, double weight, std::string mod, std::string marq, std::string color, std::string immat, int an, double price);
+    Bus(int km, int cap, double height, double weight, std::string mod, std::string marq, std::string color, std::string immat, int an, int price);
     QString toQStringDetail();
     QString attributsFicheDetail();
 
