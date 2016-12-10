@@ -3,7 +3,14 @@
 BaseDeDonnees::BaseDeDonnees() {
 
 }
-/* std::string color, std::string immat, int an, int price;*/
+
+bool BaseDeDonnees::strToBool(std::string s) {
+   if(s == "true") {
+      return true;
+   }
+   return false;
+}
+
 void BaseDeDonnees::chargerVoiture(std::vector<std::string> vo) {
     if (vo.size() == 9) {
         Voiture * vTemp = new Voiture(atoi(vo.at(1).c_str()), atoi(vo.at(2).c_str()),
@@ -14,7 +21,7 @@ void BaseDeDonnees::chargerVoiture(std::vector<std::string> vo) {
 }
 
 void BaseDeDonnees::chargerBus(std::vector<std::string> bu) {
-    //int int
+
     if (bu.size() == 11) {
         Bus * bTemp = new Bus(atoi(bu.at(1).c_str()), atoi(bu.at(2).c_str()),
                               atof(bu.at(3).c_str()), atof(bu.at(4).c_str()),
@@ -35,14 +42,20 @@ void BaseDeDonnees::chargerVelo(std::vector<std::string> ve) {
     }
 }
 
+void BaseDeDonnees::chargerLieu(std::vector<std::string> li) {
 
+    if (li.size() == 3) {
+        Lieu * lTemp = new Lieu(li.at(1), strToBool(li.at(2)));
+        liensLoc->addLieu(lTemp);
+    }
+}
 
 void BaseDeDonnees::creerBDD(LiensLocation * ll) {
     liensLoc = ll;
 
-    fichier = fopen("../TAC/vehicules.txt", "r+");
+    fichier = fopen("../TAC/bdd.txt", "r+");
     if (!fichier) {
-        fichier = fopen("../../../../TAC/vehicules.txt", "r+");
+        fichier = fopen("../../../../TAC/bdd.txt", "r+");
         if(!fichier) {
             printf("erreur à l'ouverture du fichier ../vehicules.txt\n") ;
             exit(2) ;
@@ -53,7 +66,8 @@ void BaseDeDonnees::creerBDD(LiensLocation * ll) {
     std::vector<std::string> resultat;
     unsigned int j;
 
-    std::string stringTemp, debutChaine;
+    std::string stringTemp;
+    int debutChaine;
 
     while (fgets(chaine, TAILLE_MAX, fichier) != NULL) {
         j = 0;
@@ -69,13 +83,22 @@ void BaseDeDonnees::creerBDD(LiensLocation * ll) {
         resultat.push_back(stringTemp);
         stringTemp = "";
 
-        debutChaine = resultat.at(0);
-        if (debutChaine == "0") {
+        debutChaine = atoi(resultat.at(0).c_str());
+        switch (debutChaine) {
+        case 0:
             chargerVoiture(resultat);
-        } else if (debutChaine == "1") {
+            break;
+        case 1:
             chargerBus(resultat);
-        } else if (debutChaine == "2") {
+            break;
+        case 2:
             chargerVelo(resultat);
+            break;
+        case 3:
+            chargerLieu(resultat);
+            break;
+        default:
+            break;
         }
 
         resultat.clear();

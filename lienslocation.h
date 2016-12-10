@@ -36,6 +36,7 @@ public:
     void addVoiture(Voiture * v);
     void addBus(Bus * b);
     void addVelo(Velo * v);
+    void addLieu (Lieu * l);
 
 private:
     Ui::FenetreLocation *uiLoc;

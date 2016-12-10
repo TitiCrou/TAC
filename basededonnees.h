@@ -27,6 +27,8 @@ private:
     void chargerVoiture(std::vector<std::string> vo);
     void chargerBus(std::vector<std::string> bu);
     void chargerVelo(std::vector<std::string> ve);
+    void chargerLieu(std::vector<std::string> li);
+    bool strToBool(std::string s);
 };
 
 #endif // BASEDEDONNEES_H

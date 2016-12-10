@@ -9,6 +9,7 @@ class LesLieux {
 public:
     LesLieux();
     Lieu * getLieu (int index);
+    void addLieu (Lieu * l);
     int size();
     QString toQString(int index);
 

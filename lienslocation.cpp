@@ -123,6 +123,11 @@ void LiensLocation::choixAdresse() {
 }
 
 void LiensLocation::validationChoix() {
+    uiLoc->champStationRendu->clear();
+    uiLoc->champStationRendu->addItems(listeLieux);
+    uiLoc->champStationRetrait->clear();
+    uiLoc->champStationRetrait->addItems(listeLieux);
+
     uiLoc->stackedWidget->setCurrentIndex(3);
     option=0;
 
@@ -179,7 +184,10 @@ void LiensLocation::addVelo(Velo * v) {
     listeVelo << v->toQString();
 }
 
-
+void LiensLocation::addLieu (Lieu * l) {
+    lesLieux.addLieu(l);
+    listeLieux << l->toQString();
+}
 
 LiensLocation::~LiensLocation() {
 

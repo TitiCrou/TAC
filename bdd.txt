@@ -9,3 +9,6 @@
 2,27.5,M,ROAM4,Giant,Noire,AB-001-AA,2016,20;
 2,27.5,L,ASPECT910,Scott,Noire/Verte,AB-002-AA,2016,23;
 2,27.5,M,SILENCEEVO,Scott,Blanche/Orange,AB-003-AA,2016,19;
+3,1 - Ghocancrouville Hôpital central,false;
+3,2 - Ghocancrouville Centre des Congrès,false;
+3,3 - Ghocancrouville Place Justicrou Decnien,false;
