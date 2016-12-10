@@ -49,8 +49,8 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     uiLoc->listVehicule->setCurrentRow(0);
 
     uiLoc->champStationRendu->addItems(listeLieux);
-    uiLoc->champStationRetrait->addItems(listeLieux);
     uiLoc->champStationRendu->setCurrentRow(0);
+    uiLoc->champStationRetrait->addItems(listeLieux);
     uiLoc->champStationRetrait->setCurrentRow(0);
 }
 
@@ -129,6 +129,8 @@ void LiensLocation::validationChoix() {
     if(uiLoc->avecOption->isChecked()) {
         option = location->getVehicule()->getPrixOption();;
     }
+
+    choixAdresse();
 }
 
 void LiensLocation::validationAdresses() {

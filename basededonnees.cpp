@@ -84,5 +84,4 @@ void BaseDeDonnees::creerBDD(LiensLocation * ll) {
 }
 
 BaseDeDonnees::~BaseDeDonnees() {
-    delete fichier;
 }
