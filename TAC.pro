@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     liensprobleme.cpp \
     lieu.cpp \
     leslieux.cpp \
-    basededonnees.cpp
+    basededonnees.cpp \
+    coteclient.cpp \
+    coteoperateur.cpp
 
 HEADERS  += \
     ig.h \
@@ -47,7 +49,9 @@ HEADERS  += \
     tostring.h \
     lieu.h \
     leslieux.h \
-    basededonnees.h
+    basededonnees.h \
+    coteclient.h \
+    coteoperateur.h
 
 
 FORMS    += \
@@ -55,4 +59,5 @@ FORMS    += \
     fenetreavis.ui \
     fenetrelocation.ui \
     fenetreprobleme.ui \
-    fenetreconnexion.ui
+    fenetreconnexion.ui \
+    fenetreoperateur.ui
