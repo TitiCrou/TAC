@@ -72,17 +72,17 @@ void LiensLocation::validationVehicule() {
 
     if(uiLoc->busButton->isChecked()) {
         location->setVehicule(lesBus.getVehicule(index));
-        QString option = patch::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesBus.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
         location->setVehicule(lesVelos.getVehicule(index));
-        QString option = patch::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesVelos.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans assistance");
         uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
         location->setVehicule(lesVoitures.getVehicule(index));
-        QString option = patch::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesVoitures.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
@@ -113,15 +113,14 @@ void LiensLocation::choixAdresse() {
     } else {
         uiLoc->stackedRetrait->setCurrentIndex(1);
     }
+    //uiLoc->champStationRetrait->setCurrentRow(0);
 
     if(uiLoc->boutonStationRendu->isChecked()) {
         uiLoc->stackedRendu->setCurrentIndex(0);
     } else {
         uiLoc->stackedRendu->setCurrentIndex(1);
     }
-
-    uiLoc->champStationRetrait->setCurrentRow(0);
-    uiLoc->champStationRendu->setCurrentRow(0);
+    //uiLoc->champStationRendu->setCurrentRow(0);
 }
 
 void LiensLocation::validationChoix() {
@@ -138,6 +137,8 @@ void LiensLocation::validationChoix() {
     }
 
     choixAdresse();
+    uiLoc->champStationRetrait->setCurrentRow(0);
+    uiLoc->champStationRendu->setCurrentRow(0);
 }
 
 void LiensLocation::validationAdresses() {
@@ -149,7 +150,6 @@ void LiensLocation::validationAdresses() {
 
     if(uiLoc->boutonAdresseRetrait->isChecked()) {
         Lieu * adrRetrait = new Lieu(uiLoc->champAdresseRetrait->toPlainText().toStdString(), true);
-
         prixAdresses += 5;
         location->setRetrait(adrRetrait);
     } else {
@@ -158,7 +158,6 @@ void LiensLocation::validationAdresses() {
 
     if(uiLoc->boutonAdresseRendu->isChecked()) {
         Lieu * adrRendu = new Lieu(uiLoc->champAdresseRendu->toPlainText().toStdString(), true);
-
         prixAdresses += 5;
         location->setRendu(adrRendu);
     } else {
