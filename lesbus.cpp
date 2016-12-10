@@ -8,13 +8,6 @@ LesBus::LesBus(): LesVehicules() {
     Bus * v2 = new Bus(4500, 102, 3.32, 19, "CITARO", "Mercedes", "Grise", "AC-001-AA", 2015, 130);
     Bus * v3 = new Bus(7800, 46, 3.71, 18, "TRAVEGO", "Mercedes", "Grise", "AC-002-AA", 2014, 155);
 
-
-    /*
-    v1.setModele("Bus Scolaire");
-    v2.setModele("Bus Urbain");
-    v3.setModele("Bus Toursime");
-    */
-
     lesVehicules.push_back(v1);
     lesVehicules.push_back(v2);
     lesVehicules.push_back(v3);

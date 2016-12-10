@@ -4,24 +4,17 @@ Lieu::Lieu() {
 
 }
 
-Lieu::Lieu(std::string dep, std::string fin) {
-    adresseDepart = dep;
-    adresseArrivee = fin;
+Lieu::Lieu(std::string adr, bool pers) {
+    adresse = adr;
+    perso = pers;
 }
 
-int Lieu::getPrix() {
-    return prix;
+void Lieu::setAdresse(std::string adr) {
+    adresse = adr;
 }
 
-void Lieu::setPrix(int p) {
-    prix = p;
+bool Lieu::isPerso() {
+    return perso;
 }
 
-void Lieu::setDepart(std::string dep) {
-    adresseDepart = dep;
-}
-
-void Lieu::setArrivee(std::string fin) {
-    adresseArrivee = fin;
-}
 

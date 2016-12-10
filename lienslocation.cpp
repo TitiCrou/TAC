@@ -26,6 +26,9 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     for (int i = 0; i<lesVelos.size() ; i++) {
         listeVelo << lesVelos.toQString(i);
     }
+    for (int i = 0; i<lesLieux.size() ; i++) {
+        listeLieux << lesLieux.toQString(i);
+    }
 
 
     // Connexions uiLoc
@@ -46,6 +49,11 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     uiLoc->listVehicule->addItems(listeVoiture);
     uiLoc->listVehicule->setCurrentRow(0);
+
+    uiLoc->champStationRendu->addItems(listeLieux);
+    uiLoc->champStationRetrait->addItems(listeLieux);
+    uiLoc->champStationRendu->setCurrentRow(0);
+    uiLoc->champStationRetrait->setCurrentRow(0);
 }
 
 

@@ -8,20 +8,18 @@ class Lieu {
 
 public:
     Lieu();
-    Lieu(std::string dep, std::string fin);
+    Lieu(std::string adr, bool perso);
 
-    int getPrix();
-    void setPrix(int p);
-    void setDepart(std::string dep);
-    void setArrivee(std::string fin);
+    bool isPerso();
+    void setAdresse(std::string adr);
 
-    QString toQstring();
+    QString toQString();
     ~Lieu();
 
 protected:
-    std::string adresseDepart;
-    std::string adresseArrivee;
-    int prix;
+    std::string adresse;
+    bool perso;
+
 };
 
 

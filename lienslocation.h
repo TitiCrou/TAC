@@ -11,6 +11,7 @@
 #include "lesvoitures.h"
 #include "lesbus.h"
 #include "lesvelos.h"
+#include "leslieux.h"
 #include "location.h"
 
 #include "tostring.h"
@@ -34,11 +35,12 @@ public:
 
 private:
     Ui::FenetreLocation *uiLoc;
-    QList<QString> listeVoiture, listeBus, listeVelo;
+    QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;
     Location *location;
     LesVoitures lesVoitures;
     LesBus lesBus;
     LesVelos lesVelos;
+    LesLieux lesLieux;
     int nbJours, option, prixAdresses;
 };
 
