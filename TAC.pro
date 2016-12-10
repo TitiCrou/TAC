@@ -27,7 +27,7 @@ SOURCES += main.cpp\
     liensavis.cpp \
     liensprobleme.cpp \
     lieu.cpp \
-    leslieux.cpp
+    leslieux.cpp\
     basededonnees.cpp
 
 HEADERS  += \
@@ -46,7 +46,7 @@ HEADERS  += \
     liensprobleme.h \
     tostring.h \
     lieu.h \
-    leslieux.h
+    leslieux.h\
     basededonnees.h
 
 
