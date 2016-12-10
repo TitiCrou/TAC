@@ -12,6 +12,7 @@ public:
 
     bool isPerso();
     void setAdresse(std::string adr);
+    std::string getAdresse();
 
     QString toQString();
     ~Lieu();

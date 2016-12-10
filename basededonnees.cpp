@@ -42,8 +42,11 @@ void BaseDeDonnees::creerBDD(LiensLocation * ll) {
 
     fichier = fopen("../TAC/vehicules.txt", "r+");
     if (!fichier) {
-        printf("erreur à l'ouverture du fichier ../vehicules.txt\n") ;
-        exit(2) ;
+        fichier = fopen("../../../../TAC/vehicules.txt", "r+");
+        if(!fichier) {
+            printf("erreur à l'ouverture du fichier ../vehicules.txt\n") ;
+            exit(2) ;
+        }
     }
 
     char chaine[TAILLE_MAX] = "";

@@ -13,8 +13,15 @@ void Lieu::setAdresse(std::string adr) {
     adresse = adr;
 }
 
+std::string Lieu::getAdresse() {
+    return adresse;
+}
+
 bool Lieu::isPerso() {
     return perso;
 }
 
+QString Lieu::toQString() {
+   return QString((this->getAdresse()).c_str());
+}
 
