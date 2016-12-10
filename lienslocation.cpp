@@ -192,7 +192,7 @@ void LiensLocation::validationAdresses() {
 }
 
 void LiensLocation::validationLocation() {
-
+    uiLoc->menu->click();
 }
 
 
