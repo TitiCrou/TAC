@@ -15,6 +15,8 @@ public:
     std::string getAdresse();
 
     QString toQString();
+    QString toQStringRetrait();
+    QString toQStringRendu();
     ~Lieu();
 
 protected:

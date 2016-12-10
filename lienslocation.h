@@ -27,6 +27,7 @@ protected slots:
     void retourPagePrecedente();
     void validationChoix();
     void validationAdresses();
+    void validationLocation();
 
 public:
     LiensLocation();

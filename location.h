@@ -2,26 +2,33 @@
 #define LOCATION_H
 
 #include "vehicule.h"
+#include "lieu.h"
 
 class Location
 {
 public:
     Location();
-    Location(Vehicule * v,float p,bool o);
+    Location(Vehicule * v,int p,bool o);
 
     Vehicule * getVehicule();
-    float getPrix();
+    Lieu * getRetrait();
+    Lieu * getRendu();
+    int getPrix();
     bool getOption();
     void setVehicule(Vehicule * v);
-    void setPrix(float f);
+    void setPrix(int f);
     void setOption(bool o);
+    void setRetrait(Lieu * l);
+    void setRendu(Lieu * l);
 
-    QString toQstring();
+    QString toQString();
     ~Location();
 
 protected:
     Vehicule * vehicule;
-    float prix;
+    Lieu * retrait;
+    Lieu * rendu;
+    int prix;
     bool option;
 
 };
