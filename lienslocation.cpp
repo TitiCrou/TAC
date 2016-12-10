@@ -119,7 +119,8 @@ void LiensLocation::choixAdresse() {
         uiLoc->stackedRendu->setCurrentIndex(1);
     }
 
-    //uiLoc->listLieu->setCurrentRow(0);
+    uiLoc->champStationRetrait->setCurrentRow(0);
+    uiLoc->champStationRendu->setCurrentRow(0);
 }
 
 void LiensLocation::validationChoix() {
