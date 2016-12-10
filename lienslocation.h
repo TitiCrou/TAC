@@ -19,11 +19,13 @@ class LiensLocation : public QObject {
 
     Q_OBJECT
 protected slots:
-    void choixDate();
-    void choixVehicule();
+    void validationDate();
+    void validationVehicule();
     void choixCategorie();
+    void choixAdresse();
     void retourPagePrecedente();
     void validationChoix();
+    void validationAdresses();
 
 public:
     LiensLocation();
@@ -37,7 +39,7 @@ private:
     LesVoitures lesVoitures;
     LesBus lesBus;
     LesVelos lesVelos;
-    int nbJours;
+    int nbJours, option, prixAdresses;
 };
 
 #endif // LIENSLOCATION_H
