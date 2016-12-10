@@ -33,6 +33,10 @@ public:
     LiensLocation(Ui::FenetreLocation *ui);
     ~LiensLocation();
 
+    void addVoiture(Voiture * v);
+    void addBus(Bus * b);
+    void addVelo(Velo * v);
+
 private:
     Ui::FenetreLocation *uiLoc;
     QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;

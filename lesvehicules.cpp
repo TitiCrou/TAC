@@ -13,6 +13,10 @@ Vehicule * LesVehicules::getVehicule (int index) {
     return lesVehicules.at(index);
 }
 
+void LesVehicules::addVehicule(Vehicule * v) {
+    lesVehicules.push_back(v);
+}
+
 /* transformation en QString */
 QString LesVehicules::toQString(int index) {
     return QString(this->getVehicule(index)->toQString());

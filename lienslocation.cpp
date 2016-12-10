@@ -7,8 +7,6 @@ LiensLocation::LiensLocation() {
 
 }
 
-
-
 LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     this->uiLoc = ui;
@@ -59,6 +57,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
 void LiensLocation::validationDate() {
     uiLoc->retour->show();
+    choixCategorie();
     uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
@@ -72,17 +71,17 @@ void LiensLocation::validationVehicule() {
 
     if(uiLoc->busButton->isChecked()) {
         location->setVehicule(lesBus.getVehicule(index));
-        QString option = std::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
+        QString option = patch::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
         location->setVehicule(lesVelos.getVehicule(index));
-        QString option = std::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
+        QString option = patch::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
         uiLoc->sansOption->setText("Sans assistance");
         uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
         location->setVehicule(lesVoitures.getVehicule(index));
-        QString option = std::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
+        QString option = patch::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
@@ -147,7 +146,7 @@ void LiensLocation::validationAdresses() {
 
     location->setPrix((prixDeBase*nbJours)+(option*nbJours)+prixAdresses);
 
-    QString testString = std::to_string((int)location->getPrix()).c_str();
+    QString testString = patch::to_string((int)location->getPrix()).c_str();
     QMessageBox test;
     test.setText("Prix de la loc : "+testString+"€");
     test.exec();
@@ -162,6 +161,23 @@ void LiensLocation::retourPagePrecedente() {
         uiLoc->stackedWidget->setCurrentIndex(pos-1);
     }
 }
+
+void LiensLocation::addVoiture(Voiture * v) {
+    lesVoitures.addVehicule(v);
+    listeVoiture << v->toQString();
+}
+
+void LiensLocation::addBus(Bus * b) {
+    lesBus.addVehicule(b);
+    listeBus << b->toQString();
+}
+
+void LiensLocation::addVelo(Velo * v) {
+    lesVelos.addVehicule(v);
+    listeVelo << v->toQString();
+}
+
+
 
 LiensLocation::~LiensLocation() {
 

@@ -9,6 +9,7 @@ class LesVehicules {
 public:
     LesVehicules();
     Vehicule * getVehicule (int index);
+    void addVehicule(Vehicule * v);
     int size();
     QString toQString(int index);
 

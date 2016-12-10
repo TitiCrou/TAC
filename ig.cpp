@@ -4,7 +4,6 @@
 
 IG::IG(QWidget *parent) : QMainWindow(parent) {
 
-
     uiPpale = new Ui::FenetrePrincipale;
     uiAvis = new Ui::FenetreAvis;
     uiLoc = new Ui::FenetreLocation;
@@ -21,6 +20,8 @@ IG::IG(QWidget *parent) : QMainWindow(parent) {
     liensLoc = new LiensLocation(uiLoc);
     liensAv = new LiensAvis(uiAvis);
     liensProb = new LiensProbleme(uiProb);
+
+    bdd.creerBDD(liensLoc);
 
     this->setWindowTitle("Transports à la carte");
     stack = new QStackedWidget(this);

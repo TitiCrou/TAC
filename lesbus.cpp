@@ -2,6 +2,7 @@
 
 LesBus::LesBus(): LesVehicules() {
 
+<<<<<<< HEAD
     //Bus(int km, int cap, double height, double weight, std::string mod, std::string marq, std::string color, std::string immat);
 
     Bus * v1 = new Bus(2000, 72, 3.36, 18, "INTEGRO", "Mercedes", "Grise", "AC-000-AA", 2016, 110);
@@ -11,5 +12,7 @@ LesBus::LesBus(): LesVehicules() {
     lesVehicules.push_back(v1);
     lesVehicules.push_back(v2);
     lesVehicules.push_back(v3);
+=======
+>>>>>>> refs/remotes/origin/master
 }
 

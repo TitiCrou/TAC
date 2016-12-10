@@ -26,8 +26,13 @@ SOURCES += main.cpp\
     lienslocation.cpp \
     liensavis.cpp \
     liensprobleme.cpp \
+<<<<<<< HEAD
     lieu.cpp \
     leslieux.cpp
+=======
+    lieu.cpp\
+    basededonnees.cpp
+>>>>>>> refs/remotes/origin/master
 
 HEADERS  += \
     ig.h \
@@ -44,8 +49,13 @@ HEADERS  += \
     liensavis.h \
     liensprobleme.h \
     tostring.h \
+<<<<<<< HEAD
     lieu.h \
     leslieux.h
+=======
+    lieu.h\
+    basededonnees.h
+>>>>>>> refs/remotes/origin/master
 
 
 FORMS    += \
