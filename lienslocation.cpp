@@ -12,6 +12,8 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     this->uiLoc = ui;
     location = new Location();
     nbJours = 0;
+    option = 0;
+    prixAdresses = 0;
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -25,12 +27,17 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
 
     // Connexions uiLoc
-    connect(uiLoc->chooseButton, SIGNAL(clicked()), this, SLOT(choixVehicule()));
+    connect(uiLoc->chooseButton, SIGNAL(clicked()), this, SLOT(validationVehicule()));
     connect(uiLoc->carButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
-    connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
+    connect(uiLoc->boutonAdresseRendu, SIGNAL(clicked()), this, SLOT(choixAdresse()));
+    connect(uiLoc->boutonStationRendu, SIGNAL(clicked()), this, SLOT(choixAdresse()));
+    connect(uiLoc->boutonAdresseRetrait, SIGNAL(clicked()), this, SLOT(choixAdresse()));
+    connect(uiLoc->boutonStationRetrait, SIGNAL(clicked()), this, SLOT(choixAdresse()));
+    connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(validationDate()));
     connect(uiLoc->validationChoix, SIGNAL(clicked()), this, SLOT(validationChoix()));
+    connect(uiLoc->validationAdresses, SIGNAL(clicked()), this, SLOT(validationAdresses()));
 
     //Retour page précédente uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourPagePrecedente()));
@@ -40,25 +47,17 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 }
 
 
-void LiensLocation::choixDate() {
+void LiensLocation::validationDate() {
     uiLoc->retour->show();
     choixCategorie();
     uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
     nbJours = dateDebut.daysTo(dateFin);
-
-    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin));
-
-    /*QString sformat="dd-MM-yyyy";
-    QString nbJours = jours.c_str();
-    QMessageBox test;
-    test.setText("Date debut : "+dateDebut.toString(sformat)+"/ Date fin : "+dateFin.toString(sformat)+"\nNombre de jours : "+nbJours);
-    test.exec();*/
 }
 
 
-void LiensLocation::choixVehicule() {
+void LiensLocation::validationVehicule() {
     uiLoc->stackedWidget->setCurrentIndex(2);
     int index = uiLoc->listVehicule->currentIndex().row();
 
@@ -83,7 +82,6 @@ void LiensLocation::choixVehicule() {
     uiLoc->attributs->setText(attributs);
     QString choix = location->getVehicule()->toQStringDetail();
     uiLoc->fiche->setText(choix);
-
 }
 
 void LiensLocation::choixCategorie() {
@@ -100,16 +98,45 @@ void LiensLocation::choixCategorie() {
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
+void LiensLocation::choixAdresse() {
+    if(uiLoc->boutonStationRetrait->isChecked()) {
+        uiLoc->stackedRetrait->setCurrentIndex(0);
+    } else {
+        uiLoc->stackedRetrait->setCurrentIndex(1);
+    }
+
+    if(uiLoc->boutonStationRendu->isChecked()) {
+        uiLoc->stackedRendu->setCurrentIndex(0);
+    } else {
+        uiLoc->stackedRendu->setCurrentIndex(1);
+    }
+
+    //uiLoc->listLieu->setCurrentRow(0);
+}
+
 void LiensLocation::validationChoix() {
     uiLoc->stackedWidget->setCurrentIndex(3);
-    int prixDeBase = location->getVehicule()->getPrix();
-    int option=0;
+    option=0;
 
     if(uiLoc->avecOption->isChecked()) {
         option = location->getVehicule()->getPrixOption();;
     }
+}
 
-    location->setPrix((prixDeBase*nbJours)+(option*nbJours));
+void LiensLocation::validationAdresses() {
+    uiLoc->stackedWidget->setCurrentIndex(4);
+    int prixDeBase = location->getVehicule()->getPrix();
+    prixAdresses = 0;
+
+    if(uiLoc->boutonAdresseRetrait->isChecked()) {
+        prixAdresses += 5;
+    }
+
+    if(uiLoc->boutonAdresseRendu->isChecked()) {
+        prixAdresses += 5;
+    }
+
+    location->setPrix((prixDeBase*nbJours)+(option*nbJours)+prixAdresses);
 
     QString testString = patch::to_string((int)location->getPrix()).c_str();
     QMessageBox test;
