@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     location.cpp \
     lienslocation.cpp \
     liensavis.cpp \
-    liensprobleme.cpp
+    liensprobleme.cpp \
+    basededonnees.cpp
 
 HEADERS  += \
     ig.h \
@@ -41,7 +42,8 @@ HEADERS  += \
     lienslocation.h \
     liensavis.h \
     liensprobleme.h \
-    tostring.h
+    tostring.h \
+    basededonnees.h
 
 
 FORMS    += \

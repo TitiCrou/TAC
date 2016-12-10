@@ -7,8 +7,6 @@ LiensLocation::LiensLocation() {
 
 }
 
-
-
 LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
     this->uiLoc = ui;
@@ -32,6 +30,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     connect(uiLoc->bikeButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->busButton, SIGNAL(clicked()), this, SLOT(choixCategorie()));
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(choixDate()));
+    connect(uiLoc->validationChoix, SIGNAL(clicked()), this, SLOT(validationChoix()));
 
     //Retour page précédente uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourPagePrecedente()));
@@ -43,12 +42,13 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
 
 void LiensLocation::choixDate() {
     uiLoc->retour->show();
+    choixCategorie();
     uiLoc->stackedWidget->setCurrentIndex(1);
     QDate dateDebut = uiLoc->dateDebut->selectedDate();
     QDate dateFin = uiLoc->dateFin->selectedDate();
     nbJours = dateDebut.daysTo(dateFin);
 
-    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin)) ;
+    //std::string jours = patch::to_string(dateDebut.daysTo(dateFin));
 
     /*QString sformat="dd-MM-yyyy";
     QString nbJours = jours.c_str();
@@ -64,19 +64,20 @@ void LiensLocation::choixVehicule() {
 
     if(uiLoc->busButton->isChecked()) {
         location->setVehicule(lesBus.getVehicule(index));
+        QString option = patch::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans chauffeur");
+        uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
         location->setVehicule(lesVelos.getVehicule(index));
+        QString option = patch::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans assistance");
+        uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
         location->setVehicule(lesVoitures.getVehicule(index));
+        QString option = patch::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
+        uiLoc->sansOption->setText("Sans chauffeur");
+        uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
-
-    int prixDeBase = location->getVehicule()->getPrix();
-    location->setPrix(prixDeBase*nbJours);
-
-    QMessageBox test;
-    test.setText((patch::to_string(prixDeBase*nbJours)).c_str());
-    test.exec();
-
 
     QString attributs = location->getVehicule()->attributsFicheDetail();
     uiLoc->attributs->setText(attributs);
@@ -99,6 +100,22 @@ void LiensLocation::choixCategorie() {
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
+void LiensLocation::validationChoix() {
+    uiLoc->stackedWidget->setCurrentIndex(3);
+    int prixDeBase = location->getVehicule()->getPrix();
+    int option=0;
+
+    if(uiLoc->avecOption->isChecked()) {
+        option = location->getVehicule()->getPrixOption();;
+    }
+
+    location->setPrix((prixDeBase*nbJours)+(option*nbJours));
+
+    QString testString = patch::to_string((int)location->getPrix()).c_str();
+    QMessageBox test;
+    test.setText("Prix de la loc : "+testString+"€");
+    test.exec();
+}
 
 void LiensLocation::retourPagePrecedente() {
     int pos = uiLoc->stackedWidget->currentIndex();
@@ -109,6 +126,23 @@ void LiensLocation::retourPagePrecedente() {
         uiLoc->stackedWidget->setCurrentIndex(pos-1);
     }
 }
+
+void LiensLocation::addVoiture(Voiture * v) {
+    lesVoitures.addVehicule(v);
+    listeVoiture << v->toQString();
+}
+
+void LiensLocation::addBus(Bus * b) {
+    lesBus.addVehicule(b);
+    listeBus << b->toQString();
+}
+
+void LiensLocation::addVelo(Velo * v) {
+    lesVelos.addVehicule(v);
+    listeVelo << v->toQString();
+}
+
+
 
 LiensLocation::~LiensLocation() {
 

@@ -15,6 +15,8 @@
 #include "liensavis.h"
 #include "liensprobleme.h"
 
+#include "basededonnees.h"
+
 namespace Ui {
     class IG;
 }
@@ -51,6 +53,7 @@ class IG : public QMainWindow {
             LiensLocation * liensLoc;
             LiensAvis * liensAv;
             LiensProbleme * liensProb;
+            BaseDeDonnees bdd;
            // Location location;
     };
 
