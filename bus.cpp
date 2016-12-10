@@ -44,7 +44,7 @@ QString Bus::toQStringDetail() {
 }
 
 QString Bus::attributsFicheDetail() {
-    return QString ("Marque\nModèle\nCouleur\nPrix par jour (€)\nAnnée\nKilométrage\nCapacité\nHauteur (m)\nPoids (t)\n");
+    return QString ("Marque\nModèle\nCouleur\nPrix par jour (€)\nAnnée\nKilométrage\nCapacité\nHauteur (m)\nPoids (t)");
 }
 
 

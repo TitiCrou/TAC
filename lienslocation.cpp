@@ -41,6 +41,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     connect(uiLoc->validationDate, SIGNAL(clicked()), this, SLOT(validationDate()));
     connect(uiLoc->validationChoix, SIGNAL(clicked()), this, SLOT(validationChoix()));
     connect(uiLoc->validationAdresses, SIGNAL(clicked()), this, SLOT(validationAdresses()));
+    connect(uiLoc->validationLoc, SIGNAL(clicked()), this, SLOT(validationLocation()));
 
     //Retour page précédente uiLoc
     connect(uiLoc->retour, SIGNAL(clicked()), this, SLOT(retourPagePrecedente()));
@@ -71,17 +72,17 @@ void LiensLocation::validationVehicule() {
 
     if(uiLoc->busButton->isChecked()) {
         location->setVehicule(lesBus.getVehicule(index));
-        QString option = patch::to_string(lesBus.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesBus.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
         location->setVehicule(lesVelos.getVehicule(index));
-        QString option = patch::to_string(lesVelos.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesVelos.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans assistance");
         uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
         location->setVehicule(lesVoitures.getVehicule(index));
-        QString option = patch::to_string(lesVoitures.getVehicule(index)->getPrixOption()).c_str();
+        QString option = QString::number(lesVoitures.getVehicule(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
@@ -112,15 +113,14 @@ void LiensLocation::choixAdresse() {
     } else {
         uiLoc->stackedRetrait->setCurrentIndex(1);
     }
+    //uiLoc->champStationRetrait->setCurrentRow(0);
 
     if(uiLoc->boutonStationRendu->isChecked()) {
         uiLoc->stackedRendu->setCurrentIndex(0);
     } else {
         uiLoc->stackedRendu->setCurrentIndex(1);
     }
-
-    uiLoc->champStationRetrait->setCurrentRow(0);
-    uiLoc->champStationRendu->setCurrentRow(0);
+    //uiLoc->champStationRendu->setCurrentRow(0);
 }
 
 void LiensLocation::validationChoix() {
@@ -137,28 +137,64 @@ void LiensLocation::validationChoix() {
     }
 
     choixAdresse();
+    uiLoc->champStationRetrait->setCurrentRow(0);
+    uiLoc->champStationRendu->setCurrentRow(0);
 }
 
 void LiensLocation::validationAdresses() {
     uiLoc->stackedWidget->setCurrentIndex(4);
     int prixDeBase = location->getVehicule()->getPrix();
+    int indexRetrait = uiLoc->champStationRetrait->currentIndex().row();
+    int indexRendu = uiLoc->champStationRendu->currentIndex().row();
     prixAdresses = 0;
 
     if(uiLoc->boutonAdresseRetrait->isChecked()) {
+        Lieu * adrRetrait = new Lieu(uiLoc->champAdresseRetrait->toPlainText().toStdString(), true);
         prixAdresses += 5;
+        location->setRetrait(adrRetrait);
+    } else {
+        location->setRetrait(lesLieux.getLieu(indexRetrait));
     }
 
     if(uiLoc->boutonAdresseRendu->isChecked()) {
+        Lieu * adrRendu = new Lieu(uiLoc->champAdresseRendu->toPlainText().toStdString(), true);
         prixAdresses += 5;
+        location->setRendu(adrRendu);
+    } else {
+        location->setRendu(lesLieux.getLieu(indexRendu));
     }
 
     location->setPrix((prixDeBase*nbJours)+(option*nbJours)+prixAdresses);
 
-    QString testString = patch::to_string((int)location->getPrix()).c_str();
-    QMessageBox test;
-    test.setText("Prix de la loc : "+testString+"€");
-    test.exec();
+    // Partie récap
+    QString attributsAdresses = "Durée de location : \n"
+            +location->getRetrait()->toQStringRetrait()+"\n"
+            +location->getRendu()->toQStringRendu();
+    QString ficheAdresses = QString::number(nbJours)+" jour(s)\n"
+            +location->getRetrait()->toQString()+"\n"
+            +location->getRendu()->toQString();
+    QString attributs = location->getVehicule()->attributsFicheDetail()+"\n\n"
+            +"Coût déplacement : \n"
+            +"Coût option : \n"
+            +"Coût véhicule : \n\n"
+            +"Total :";
+    QString choix = location->getVehicule()->toQStringDetail()+"\n\n"
+            +QString::number(prixAdresses)+"€\n"
+            +QString::number(option*nbJours)+"€\n"
+            +QString::number(location->getVehicule()->getPrix()*nbJours)+"€\n\n"
+            +QString::number(location->getPrix())+"€";
+
+
+    uiLoc->attributsAdresses->setText(attributsAdresses);
+    uiLoc->ficheAdresses->setText(ficheAdresses);
+    uiLoc->attributsRecap->setText(attributs);
+    uiLoc->ficheRecap->setText(choix);
 }
+
+void LiensLocation::validationLocation() {
+
+}
+
 
 void LiensLocation::retourPagePrecedente() {
     int pos = uiLoc->stackedWidget->currentIndex();

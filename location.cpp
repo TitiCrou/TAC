@@ -5,34 +5,51 @@ Location::Location()
 
 }
 
-Location::Location(Vehicule * v,float p,bool o){
+Location::Location(Vehicule * v,int p,bool o){
     vehicule = v;
     prix = p;
     option = o;
 }
 
 
- Vehicule * Location::getVehicule(){
+Vehicule * Location::getVehicule(){
     return vehicule;
 }
 
- float Location::getPrix(){
-     return prix;
- }
+Lieu * Location::getRetrait() {
+    return retrait;
+}
 
- bool Location::getOption(){
-     return option;
- }
+Lieu * Location::getRendu() {
+    return rendu;
+}
 
- void Location::setVehicule(Vehicule * v){
-     vehicule = v;
- }
+int Location::getPrix(){
+    return prix;
+}
 
- void Location::setPrix(float p){
-     prix = p;
- }
+bool Location::getOption(){
+    return option;
+}
 
- void Location::setOption(bool o){
-     option = o;
- }
+void Location::setRetrait(Lieu * l) {
+    retrait = l;
+}
+
+void Location::setRendu(Lieu * l) {
+    rendu = l;
+}
+
+void Location::setVehicule(Vehicule * v){
+    vehicule = v;
+}
+
+void Location::setPrix(int p){
+    prix = p;
+}
+
+void Location::setOption(bool o){
+    option = o;
+}
+
 

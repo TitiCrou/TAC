@@ -25,3 +25,10 @@ QString Lieu::toQString() {
    return QString((this->getAdresse()).c_str());
 }
 
+QString Lieu::toQStringRetrait() {
+    return QString("Point de retrait : ");
+}
+
+QString Lieu::toQStringRendu() {
+    return QString("Point de rendu : ");
+}
