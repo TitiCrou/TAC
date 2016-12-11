@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     leslieux.cpp \
     basededonnees.cpp \
     coteclient.cpp \
-    coteoperateur.cpp
+    coteoperateur.cpp \
+    listesdedonnees.cpp
 
 HEADERS  += \
     ig.h \
@@ -51,7 +52,8 @@ HEADERS  += \
     leslieux.h \
     basededonnees.h \
     coteclient.h \
-    coteoperateur.h
+    coteoperateur.h \
+    listesdedonnees.h
 
 
 FORMS    += \

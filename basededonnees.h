@@ -7,8 +7,7 @@
 #include <string>
 #include <sstream>
 
-#include "lienslocation.h"
-#include "coteoperateur.h"
+#include "listesdedonnees.h"
 #include "voiture.h"
 #include "bus.h"
 #include "velo.h"
@@ -22,14 +21,12 @@ class BaseDeDonnees {
 
 public:
     BaseDeDonnees();
-    void creerBDD(LiensLocation * ll);
-    void creerBDD(CoteOperateur * co);
+    void creerBDD(ListesDeDonnees *ldd);
     ~BaseDeDonnees();
 
 private:
     FILE *fichier ;
-    LiensLocation * liensLoc;
-    CoteOperateur * operateur;
+    ListesDeDonnees * listesDD;
     void chargerVoiture(std::vector<std::string> vo);
     void chargerBus(std::vector<std::string> bu);
     void chargerVelo(std::vector<std::string> ve);

@@ -40,10 +40,7 @@ public:
 private:
     Ui::FenetreOperateur * uiOp;
     QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;
-    LesVoitures lesVoitures;
-    LesBus lesBus;
-    LesVelos lesVelos;
-    LesLieux lesLieux;
+    ListesDeDonnees * listesDD;
     BaseDeDonnees bdd;
 };
 

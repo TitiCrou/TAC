@@ -7,7 +7,7 @@ LiensLocation::LiensLocation() {
 
 }
 
-LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
+LiensLocation::LiensLocation(Ui::FenetreLocation *ui, ListesDeDonnees *lDD) {
 
     this->uiLoc = ui;
     location = new Location();
@@ -16,17 +16,19 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     prixAdresses = 0;
     setLocVal(false);
 
-    for (int i = 0; i<lesVoitures.size() ; i++) {
-        listeVoiture << lesVoitures.toQString(i);
+    listesDD = lDD;
+
+    for (int i = 0 ; i<listesDD->voituresSize() ; i++) {
+        listeVoiture << listesDD->voitureToQString(i);
     }
-    for (int i = 0; i<lesBus.size() ; i++) {
-        listeBus << lesBus.toQString(i);
+    for (int i = 0 ; i<listesDD->busSize() ; i++) {
+        listeBus << listesDD->busToQString(i);
     }
-    for (int i = 0; i<lesVelos.size() ; i++) {
-        listeVelo << lesVelos.toQString(i);
+    for (int i = 0 ; i<listesDD->velosSize() ; i++) {
+        listeVelo << listesDD->veloToQString(i);
     }
-    for (int i = 0; i<lesLieux.size() ; i++) {
-        listeLieux << lesLieux.toQString(i);
+    for (int i = 0 ; i<listesDD->lieuxSize() ; i++) {
+        listeLieux << listesDD->lieuToQString(i);
     }
 
 
@@ -72,18 +74,18 @@ void LiensLocation::validationVehicule() {
     int index = uiLoc->listVehicule->currentIndex().row();
 
     if(uiLoc->busButton->isChecked()) {
-        location->setVehicule(lesBus.getVehicule(index));
-        QString option = QString::number(lesBus.getVehicule(index)->getPrixOption());
+        location->setVehicule(listesDD->getBus(index));
+        QString option = QString::number(listesDD->getBus(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     } else if(uiLoc->bikeButton->isChecked()) {
-        location->setVehicule(lesVelos.getVehicule(index));
-        QString option = QString::number(lesVelos.getVehicule(index)->getPrixOption());
+        location->setVehicule(listesDD->getVelo(index));
+        QString option = QString::number(listesDD->getVelo(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans assistance");
         uiLoc->avecOption->setText("Avec assistance ("+option+"€)");
     } else if(uiLoc->carButton->isChecked()) {
-        location->setVehicule(lesVoitures.getVehicule(index));
-        QString option = QString::number(lesVoitures.getVehicule(index)->getPrixOption());
+        location->setVehicule(listesDD->getVoiture(index));
+        QString option = QString::number(listesDD->getVoiture(index)->getPrixOption());
         uiLoc->sansOption->setText("Sans chauffeur");
         uiLoc->avecOption->setText("Avec chauffeur ("+option+"€)");
     }
@@ -134,7 +136,7 @@ void LiensLocation::validationChoix() {
     option=0;
 
     if(uiLoc->avecOption->isChecked()) {
-        option = location->getVehicule()->getPrixOption();;
+        option = location->getVehicule()->getPrixOption();
     }
 
     choixAdresse();
@@ -154,7 +156,7 @@ void LiensLocation::validationAdresses() {
         prixAdresses += 5;
         location->setRetrait(adrRetrait);
     } else {
-        location->setRetrait(lesLieux.getLieu(indexRetrait));
+        location->setRetrait(listesDD->getLieu(indexRetrait));
     }
 
     if(uiLoc->boutonAdresseRendu->isChecked()) {
@@ -162,7 +164,7 @@ void LiensLocation::validationAdresses() {
         prixAdresses += 5;
         location->setRendu(adrRendu);
     } else {
-        location->setRendu(lesLieux.getLieu(indexRendu));
+        location->setRendu(listesDD->getLieu(indexRendu));
     }
 
     location->setPrix((prixDeBase*nbJours)+(option*nbJours)+prixAdresses);
@@ -206,26 +208,6 @@ void LiensLocation::retourPagePrecedente() {
         }
         uiLoc->stackedWidget->setCurrentIndex(pos-1);
     }
-}
-
-void LiensLocation::addVoiture(Voiture * v) {
-    lesVoitures.addVehicule(v);
-    listeVoiture << v->toQString();
-}
-
-void LiensLocation::addBus(Bus * b) {
-    lesBus.addVehicule(b);
-    listeBus << b->toQString();
-}
-
-void LiensLocation::addVelo(Velo * v) {
-    lesVelos.addVehicule(v);
-    listeVelo << v->toQString();
-}
-
-void LiensLocation::addLieu (Lieu * l) {
-    lesLieux.addLieu(l);
-    listeLieux << l->toQString();
 }
 
 bool LiensLocation::getLocVal() {

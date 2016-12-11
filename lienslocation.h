@@ -7,13 +7,8 @@
 #include <QMessageBox>
 #include <QList>
 
-#include "lesvehicules.h"
-#include "lesvoitures.h"
-#include "lesbus.h"
-#include "lesvelos.h"
-#include "leslieux.h"
 #include "location.h"
-
+#include "listesdedonnees.h"
 #include "tostring.h"
 
 class LiensLocation : public QObject {
@@ -31,13 +26,10 @@ protected slots:
 
 public:
     LiensLocation();
-    LiensLocation(Ui::FenetreLocation *ui);
+    LiensLocation(Ui::FenetreLocation *ui, ListesDeDonnees * lDD);
     ~LiensLocation();
 
-    void addVoiture(Voiture * v);
-    void addBus(Bus * b);
-    void addVelo(Velo * v);
-    void addLieu (Lieu * l);
+
     bool getLocVal();
     void setLocVal(bool b);
 
@@ -45,12 +37,9 @@ private:
     Ui::FenetreLocation *uiLoc;
     QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;
     Location *location;
-    LesVoitures lesVoitures;
-    LesBus lesBus;
-    LesVelos lesVelos;
-    LesLieux lesLieux;
     int nbJours, option, prixAdresses;
     bool locVal;
+    ListesDeDonnees * listesDD;
 };
 
 #endif // LIENSLOCATION_H

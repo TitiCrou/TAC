@@ -9,24 +9,26 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
     uiOp = new Ui::FenetreOperateur;
     uiOp->setupUi(parent);
 
-    bdd.creerBDD(this);
+    listesDD = new ListesDeDonnees();
+
+    bdd.creerBDD(listesDD);
 
     stack = new QStackedWidget(parent);
     stack->addWidget(uiOp->centralWidget);
 
     parent->setWindowTitle("Transports à la carte");
 
-    for (int i = 0; i<lesVoitures.size() ; i++) {
-        listeVoiture << lesVoitures.toQString(i);
+    for (int i = 0 ; i<listesDD->voituresSize() ; i++) {
+        listeVoiture << listesDD->voitureToQString(i);
     }
-    for (int i = 0; i<lesBus.size() ; i++) {
-        listeBus << lesBus.toQString(i);
+    for (int i = 0 ; i<listesDD->busSize() ; i++) {
+        listeBus << listesDD->busToQString(i);
     }
-    for (int i = 0; i<lesVelos.size() ; i++) {
-        listeVelo << lesVelos.toQString(i);
+    for (int i = 0 ; i<listesDD->velosSize() ; i++) {
+        listeVelo << listesDD->veloToQString(i);
     }
-    for (int i = 0; i<lesLieux.size() ; i++) {
-        listeLieux << lesLieux.toQString(i);
+    for (int i = 0 ; i<listesDD->lieuxSize() ; i++) {
+        listeLieux << listesDD->lieuToQString(i);
     }
 
     // Init des boutons
@@ -80,25 +82,6 @@ void CoteOperateur::ajout() {
     }
 }*/
 
-void CoteOperateur::addVoiture(Voiture * v) {
-    lesVoitures.addVehicule(v);
-    listeVoiture << v->toQString();
-}
-
-void CoteOperateur::addBus(Bus * b) {
-    lesBus.addVehicule(b);
-    listeBus << b->toQString();
-}
-
-void CoteOperateur::addVelo(Velo * v) {
-    lesVelos.addVehicule(v);
-    listeVelo << v->toQString();
-}
-
-void CoteOperateur::addLieu (Lieu * l) {
-    lesLieux.addLieu(l);
-    listeLieux << l->toQString();
-}
 
 CoteOperateur::~CoteOperateur() {
     delete stack;

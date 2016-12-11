@@ -42,6 +42,7 @@ private:
     LiensAvis * liensAv;
     LiensProbleme * liensProb;
     BaseDeDonnees bdd;
+    ListesDeDonnees * listesDD;
     // Location location;
 };
 

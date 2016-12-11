@@ -12,11 +12,14 @@ CoteClient::CoteClient(QWidget * parent) {
     uiAvis->setupUi(parent);
     uiProb->setupUi(parent);
 
-    liensLoc = new LiensLocation(uiLoc);
+    listesDD = new ListesDeDonnees();
+
+    bdd.creerBDD(listesDD);
+
+    liensLoc = new LiensLocation(uiLoc, listesDD);
     liensAv = new LiensAvis(uiAvis);
     liensProb = new LiensProbleme(uiProb);
 
-    bdd.creerBDD(liensLoc);
 
     stack = new QStackedWidget(parent);
 
