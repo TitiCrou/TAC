@@ -14,6 +14,9 @@
 
 #define TAILLE_MAX 1000
 
+/**
+ * @brief Classe gérant la persistance de données
+ */
 class BaseDeDonnees {
 
 public:
