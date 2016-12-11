@@ -54,6 +54,9 @@ void CoteClient::loc() {
 }
 
 void CoteClient::afficherFenetre(int index) {
+    if (index != 0) {
+        uiPpale->confirmLoc->hide();
+    }
     stack->setCurrentIndex(index);
 }
 
@@ -67,7 +70,10 @@ void CoteClient::mettreProbleme() {
 
 void CoteClient::retourMenu() {
     emit signalChangement(0);
-    uiPpale->confirmLoc->show();
+    if (liensLoc->getLocVal()) {
+        uiPpale->confirmLoc->show();
+        liensLoc->setLocVal(false);
+    }
 }
 
 CoteClient::~CoteClient() {

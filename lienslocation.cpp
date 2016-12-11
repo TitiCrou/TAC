@@ -14,6 +14,7 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui) {
     nbJours = 0;
     option = 0;
     prixAdresses = 0;
+    setLocVal(false);
 
     for (int i = 0; i<lesVoitures.size() ; i++) {
         listeVoiture << lesVoitures.toQString(i);
@@ -192,6 +193,7 @@ void LiensLocation::validationAdresses() {
 }
 
 void LiensLocation::validationLocation() {
+    setLocVal(true);
     uiLoc->menu->click();
 }
 
@@ -224,6 +226,14 @@ void LiensLocation::addVelo(Velo * v) {
 void LiensLocation::addLieu (Lieu * l) {
     lesLieux.addLieu(l);
     listeLieux << l->toQString();
+}
+
+bool LiensLocation::getLocVal() {
+    return locVal;
+}
+
+void LiensLocation::setLocVal(bool b) {
+    locVal = b;
 }
 
 LiensLocation::~LiensLocation() {

@@ -38,6 +38,8 @@ public:
     void addBus(Bus * b);
     void addVelo(Velo * v);
     void addLieu (Lieu * l);
+    bool getLocVal();
+    void setLocVal(bool b);
 
 private:
     Ui::FenetreLocation *uiLoc;
@@ -48,6 +50,7 @@ private:
     LesVelos lesVelos;
     LesLieux lesLieux;
     int nbJours, option, prixAdresses;
+    bool locVal;
 };
 
 #endif // LIENSLOCATION_H
