@@ -22,6 +22,9 @@ protected slots:
     void choixCategorie();
     void modification();
     void ajout();
+    void annulation();
+    void validation();
+    void suppression();
 
 signals:
     void signalChangement(int);
@@ -31,10 +34,6 @@ public:
     CoteOperateur();
     CoteOperateur(QWidget *parent);
 
-    void addVoiture(Voiture * v);
-    void addBus(Bus * b);
-    void addVelo(Velo * v);
-    void addLieu (Lieu * l);
     ~CoteOperateur();
 
 private:
@@ -42,6 +41,8 @@ private:
     QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;
     ListesDeDonnees * listesDD;
     BaseDeDonnees bdd;
+
+    void fenetreModif(int i);
 };
 
 #endif // COTEOPERATEUR_H

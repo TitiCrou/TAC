@@ -1,6 +1,7 @@
 #include "velo.h"
 
 #include "tostring.h"
+#include <QString>
 
 Velo::Velo() : Vehicule() {
 
