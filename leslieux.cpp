@@ -1,31 +1,40 @@
 #include "leslieux.h"
 
 LesLieux::LesLieux() {
-    /*Lieu * l1 = new Lieu("1 - Ghocancrouville Hôpital central", false);
-    Lieu * l2 = new Lieu("2 - Ghocancrouville Centre des Congrès", false);
-    Lieu * l3 = new Lieu("3 - Ghocancrouville Place Justicrou Decnien", false);
 
-    lesLieux.push_back(l1);
-    lesLieux.push_back(l2);
-    lesLieux.push_back(l3);*/
 }
 
-/* tailles des vecteurs */
+/**
+ * @brief getter de la taille du veteur des lieux
+ * @return la taille du veteur lesLieux
+ */
 int LesLieux::size() {
     return lesLieux.size();
 }
 
-/* getters des lieux */
+/**
+ * @brief getter d'un Lieu
+ * @param index position du lieu dans le veteur
+ * @return le lieu à la position index du veteur lesLieux
+ */
 Lieu * LesLieux::getLieu(int index) {
     return lesLieux.at(index);
 }
 
-/* ajout d'un lieu dans le vector */
+/**
+ * @brief ajout d'un lieu dans le vecteur
+ * @param l le nouveau lieu à ajouter
+ */
 void LesLieux::addLieu(Lieu * l) {
     lesLieux.push_back(l);
 }
 
-/* transformation en QString */
+
+/**
+ * @brief toString du lieu en QString
+ * @param index position du lieu dans le vecteur
+ * @return un QString du lieu à la position index du vecteur des lieux
+ */
 QString LesLieux::toQString(int index) {
     return QString(this->getLieu(index)->toQString());
 }
