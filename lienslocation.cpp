@@ -1,7 +1,7 @@
 #include "lienslocation.h"
 #include <string.h>
 
-#include<sstream>
+#include <sstream>
 
 LiensLocation::LiensLocation() {
 
