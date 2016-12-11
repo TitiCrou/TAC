@@ -256,7 +256,7 @@ void CoteOperateur::validationModif() {
         v->setAnnee(uiOp->annee->toPlainText().toInt());
         v->setPrix(uiOp->prix->toPlainText().toInt());
 
-        v->setTaillePneu(uiOp->option1->toPlainText().toInt());
+        v->setTaillePneu(uiOp->option1->toPlainText().toDouble());
         v->setTaille(uiOp->option2->toPlainText().toStdString());
 
         listesDD->addVelo(v);
