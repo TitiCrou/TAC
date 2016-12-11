@@ -105,9 +105,9 @@ void BaseDeDonnees::chargerLieu(std::vector<std::string> li) {
 void BaseDeDonnees::creerBDD(ListesDeDonnees * ldd) {
     listesDD = ldd;
 
-    fichier = fopen("../TAC/bdd.txt", "r+");
+    fichier = fopen("../TAC_Huitieme_iteration/bdd.txt", "r+");
     if (!fichier) {
-        fichier = fopen("../../../../TAC/bdd.txt", "r+");
+        fichier = fopen("../../../../TAC_Huitieme_iteration/bdd.txt", "r+");
         if(!fichier) {
             printf("erreur à l'ouverture du fichier ../vehicules.txt\n") ;
             exit(2) ;
