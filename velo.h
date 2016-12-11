@@ -13,6 +13,8 @@ public:
 
     double getTaillePneu();
     std::string getTaille();
+    void setTaille(std::string t);
+    void setTaillePneu(double tp);
 
 protected:
     double taillePneu;

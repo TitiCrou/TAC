@@ -15,6 +15,10 @@ public:
     int getCapacite();
     double getHauteur();
     double getPoids();
+    void setKilo(int kg);
+    void setCap(int c);
+    void setHeight(double h);
+    void setWeight(double w);
 
 protected:
    int kilometrage, capacite;

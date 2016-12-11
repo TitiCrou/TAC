@@ -41,6 +41,22 @@ int Voiture::getPuissance() {
 }
 
 /**
+ * @brief setter du kilométrage
+ * @param kg le nouveau kilométrage de la voiture
+ */
+void Voiture::setKilo(int kg) {
+    kilometrage = kg;
+}
+
+/**
+ * @brief setter de la puissance
+ * @param cv la nouvelle puissance de la voiture
+ */
+void Voiture::setPower(int cv) {
+    puissance = cv;
+}
+
+/**
  * @brief Construit la fiche détaillée de la voiture
  * @return la fiche contenue dans un QString
  * Construit la fiche détaillée de la voiture pour l'afficher

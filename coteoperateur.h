@@ -24,6 +24,7 @@ protected slots:
     void ajout();
     void annulation();
     void validationAjout();
+    void validationModif();
     void suppression();
 
 signals:
@@ -41,6 +42,7 @@ private:
     QList<QString> listeVoiture, listeBus, listeVelo, listeLieux;
     ListesDeDonnees * listesDD;
     BaseDeDonnees bdd;
+    int index;
 
     void fenetreModif(int i);
 };

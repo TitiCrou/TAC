@@ -61,6 +61,38 @@ double Bus::getPoids() {
 }
 
 /**
+ * @brief setter du kilométrage
+ * @param kg le nouveau kilométrage du bus
+ */
+void Bus::setKilo(int kg) {
+    kilometrage = kg;
+}
+
+/**
+ * @brief setter de la capacité
+ * @param c la nouvelle capacité du bus
+ */
+void Bus::setCap(int c) {
+    capacite = c;
+}
+
+/**
+ * @brief setter de la hauteur
+ * @param h la nouvelle hauteur du bus
+ */
+void Bus::setHeight(double h) {
+    hauteur = h;
+}
+
+/**
+ * @brief setter du poids
+ * @param w le nouveau poids du bus
+ */
+void Bus::setWeight(double w) {
+    poids = w;
+}
+
+/**
  * @brief Construit la fiche détaillée du bus
  * @return la fiche contenue dans un QString
  * Construit la fiche détaillée du bus pour l'afficher

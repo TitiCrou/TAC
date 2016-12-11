@@ -9,6 +9,7 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
     uiOp = new Ui::FenetreOperateur;
     uiOp->setupUi(parent);
 
+    index = 0;
     listesDD = new ListesDeDonnees();
 
     bdd.creerBDD(listesDD);
@@ -46,7 +47,7 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
 
     // Section de modif/supp
     connect(uiOp->annulationModif, SIGNAL(clicked()), this, SLOT(annulation()));
-    //connect(uiOp->validationModif, SIGNAL(clicked()), this, SLOT(validation()));
+    connect(uiOp->validationModif, SIGNAL(clicked()), this, SLOT(validationModif()));
     connect(uiOp->suppressionVehicule, SIGNAL(clicked()), this, SLOT(suppression()));
 
     uiOp->listVehicule->addItems(listeVoiture);
@@ -77,7 +78,7 @@ void CoteOperateur::choixCategorie() {
 void CoteOperateur::modification() {
     uiOp->stackedWidget->setCurrentIndex(2);
 
-    int index = uiOp->listVehicule->currentIndex().row();
+    index = uiOp->listVehicule->currentIndex().row();
 
     if(uiOp->busButton->isChecked()) {
         Bus * b = (Bus*) listesDD->getBus(index);
@@ -157,6 +158,9 @@ void CoteOperateur::validationAjout() {
     if(uiOp->addOption1->isHidden()) {
         Lieu * l = new Lieu(uiOp->addMarque->toPlainText().toStdString(), false);
         listesDD->addLieu(l);
+        listeLieux.push_back(l->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeLieux);
     } else if(!uiOp->addOption4->isHidden()) {
         Bus * b = new Bus(uiOp->addOption1->toPlainText().toInt(),
                           uiOp->addOption2->toPlainText().toInt(),
@@ -168,16 +172,97 @@ void CoteOperateur::validationAjout() {
                           "AA-004-AC",
                           uiOp->addAnnee->toPlainText().toInt(),
                           uiOp->addPrix->toPlainText().toInt());
-        //listesDD->addBus(b);
+        listesDD->addBus(b);
         listeBus.push_back(b->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeBus);
     }
+
+
+    annulation();
+}
+
+void CoteOperateur::validationModif() {
+
+    if(uiOp->placeButton->isChecked()) {
+        Lieu * l = (Lieu*) listesDD->getLieu(index);
+        l->setAdresse(uiOp->marque->toPlainText().toStdString());
+        listesDD->addLieu(l);
+        listeLieux.replace(index, l->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeLieux);
+    } else if(uiOp->busButton->isChecked()) {
+        Bus * b = (Bus*) listesDD->getBus(index);
+        b->setMarque(uiOp->marque->toPlainText().toStdString());
+        b->setModele(uiOp->modele->toPlainText().toStdString());
+        b->setCouleur(uiOp->couleur->toPlainText().toStdString());
+        b->setAnnee(uiOp->annee->toPlainText().toInt());
+        b->setPrix(uiOp->prix->toPlainText().toInt());
+
+        b->setKilo(uiOp->option1->toPlainText().toInt());
+        b->setCap(uiOp->option2->toPlainText().toInt());
+        b->setHeight(uiOp->option3->toPlainText().toInt());
+        b->setWeight(uiOp->option4->toPlainText().toInt());
+
+        listesDD->addBus(b);
+        listeBus.replace(index, b->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeBus);
+    } else if(uiOp->carButton->isChecked()) {
+        Voiture * v = (Voiture*) listesDD->getVoiture(index);
+        v->setMarque(uiOp->marque->toPlainText().toStdString());
+        v->setModele(uiOp->modele->toPlainText().toStdString());
+        v->setCouleur(uiOp->couleur->toPlainText().toStdString());
+        v->setAnnee(uiOp->annee->toPlainText().toInt());
+        v->setPrix(uiOp->prix->toPlainText().toInt());
+
+        v->setKilo(uiOp->option1->toPlainText().toInt());
+        v->setPower(uiOp->option2->toPlainText().toInt());
+
+        listesDD->addVoiture(v);
+        listeVoiture.replace(index, v->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVoiture);
+    } else if(uiOp->bikeButton->isChecked()) {
+        Velo * v = (Velo*) listesDD->getVelo(index);
+        v->setMarque(uiOp->marque->toPlainText().toStdString());
+        v->setModele(uiOp->modele->toPlainText().toStdString());
+        v->setCouleur(uiOp->couleur->toPlainText().toStdString());
+        v->setAnnee(uiOp->annee->toPlainText().toInt());
+        v->setPrix(uiOp->prix->toPlainText().toInt());
+
+        v->setTaillePneu(uiOp->option1->toPlainText().toInt());
+        v->setTaille(uiOp->option2->toPlainText().toStdString());
+
+        listesDD->addVelo(v);
+        listeVelo.replace(index, v->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVelo);
+    }
+
 
     annulation();
 }
 
 void CoteOperateur::suppression() {
 
-
+    if(uiOp->placeButton->isChecked()) {
+        listeLieux.removeAt(index);
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeLieux);
+    } else if(uiOp->carButton->isChecked()) {
+        listeVoiture.removeAt(index);
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVoiture);
+    } else if(uiOp->busButton->isChecked()) {
+        listeBus.removeAt(index);
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeBus);
+    } else if(uiOp->bikeButton->isChecked()) {
+        listeVelo.removeAt(index);
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVelo);
+    }
 
     annulation();
 }

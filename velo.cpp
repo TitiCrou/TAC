@@ -43,6 +43,22 @@ std::string Velo::getTaille() {
 }
 
 /**
+ * @brief setter de la taille de cadre
+ * @param t la nouvelle taille de cadre du vélo
+ */
+void Velo::setTaille(std::string t) {
+    taille = t;
+}
+
+/**
+ * @brief setter de la taille de pneu
+ * @param tp la nouvelle taille de pneu du vélo (en pouces)
+ */
+void Velo::setTaillePneu(double tp) {
+    taillePneu = tp;
+}
+
+/**
  * @brief Construit la fiche détaillée du velo
  * @return la fiche contenue dans un QString
  * Construit la fiche détaillée du velo pour l'afficher

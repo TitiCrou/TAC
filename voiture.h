@@ -12,6 +12,8 @@ public:
     QString attributsFicheDetail();
     int getKilo();
     int getPuissance();
+    void setKilo(int kg);
+    void setPower(int cv);
 
 protected:
     int kilometrage, puissance;
