@@ -30,8 +30,6 @@ SOURCES += main.cpp\
     leslieux.cpp \
     basededonnees.cpp \
     coteclient.cpp \
-    coteoperateur.cpp \
-    coteclient.cpp \
     coteoperateur.cpp
 
 HEADERS  += \
@@ -53,8 +51,6 @@ HEADERS  += \
     leslieux.h \
     basededonnees.h \
     coteclient.h \
-    coteoperateur.h \
-    coteclient.h \
     coteoperateur.h
 
 
@@ -64,5 +60,4 @@ FORMS    += \
     fenetrelocation.ui \
     fenetreprobleme.ui \
     fenetreconnexion.ui \
-    fenetreoperateur.ui \
     fenetreoperateur.ui
