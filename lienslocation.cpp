@@ -3,10 +3,20 @@
 
 #include <sstream>
 
+/**
+ * @brief Constructeur vide de LiensLocation
+ */
 LiensLocation::LiensLocation() {
 
 }
 
+/**
+ * @brief Constructeur de LiensLocation
+ * @param ui l'interface définissant la fenêtre dédiée à la location
+ * @param lDD la classe contenant toutes les données nécessaire (véhicules, lieux)
+ * Dans ce constructeur, tous les éléments nécessaires au formulaire de location
+ * sont initialisés
+ */
 LiensLocation::LiensLocation(Ui::FenetreLocation *ui, ListesDeDonnees *lDD) {
 
     this->uiLoc = ui;
@@ -59,6 +69,9 @@ LiensLocation::LiensLocation(Ui::FenetreLocation *ui, ListesDeDonnees *lDD) {
 }
 
 
+/**
+ * @brief Le client valide les dates de début et de fin et passe au choix du véhicule
+ */
 void LiensLocation::validationDate() {
     uiLoc->retour->show();
     choixCategorie();
@@ -68,7 +81,11 @@ void LiensLocation::validationDate() {
     nbJours = dateDebut.daysTo(dateFin);
 }
 
-
+/**
+ * @brief Le client choisit un véhicule et est redirigé sur la fiche détaillée
+ * Les données du véhicule choisi sont stockées dans l'instance de la classe Location
+ * La fiche détaillée est créée en fonction du descriptif du véhicule
+ */
 void LiensLocation::validationVehicule() {
     uiLoc->stackedWidget->setCurrentIndex(2);
     int index = uiLoc->listVehicule->currentIndex().row();
@@ -96,6 +113,9 @@ void LiensLocation::validationVehicule() {
     uiLoc->fiche->setText(choix);
 }
 
+/**
+ * @brief Charge les véhicules disponibles en fonction de leur type
+ */
 void LiensLocation::choixCategorie() {
     if(uiLoc->busButton->isChecked()) {
         uiLoc->listVehicule->clear();
@@ -110,6 +130,9 @@ void LiensLocation::choixCategorie() {
     uiLoc->listVehicule->setCurrentRow(0);
 }
 
+/**
+ * @brief Gestion des stations et des adresses personnalisées
+ */
 void LiensLocation::choixAdresse() {
     if(uiLoc->boutonStationRetrait->isChecked()) {
         uiLoc->stackedRetrait->setCurrentIndex(0);
@@ -126,6 +149,9 @@ void LiensLocation::choixAdresse() {
     //uiLoc->champStationRendu->setCurrentRow(0);
 }
 
+/**
+ * @brief Affichage des stations après validation du choix du véhicule
+ */
 void LiensLocation::validationChoix() {
     uiLoc->champStationRendu->clear();
     uiLoc->champStationRendu->addItems(listeLieux);
@@ -144,6 +170,9 @@ void LiensLocation::validationChoix() {
     uiLoc->champStationRendu->setCurrentRow(0);
 }
 
+/**
+ * @brief Affichage du récapitulatif après enregistrement des lieux dans la location
+ */
 void LiensLocation::validationAdresses() {
     uiLoc->stackedWidget->setCurrentIndex(4);
     int prixDeBase = location->getVehicule()->getPrix();
@@ -194,12 +223,17 @@ void LiensLocation::validationAdresses() {
     uiLoc->ficheRecap->setText(choix);
 }
 
+/**
+ * @brief Validation de la location et retour au menu principal
+ */
 void LiensLocation::validationLocation() {
     setLocVal(true);
     uiLoc->menu->click();
 }
 
-
+/**
+ * @brief Retour à la page précédente après clic sur bouton
+ */
 void LiensLocation::retourPagePrecedente() {
     int pos = uiLoc->stackedWidget->currentIndex();
     if (pos > 0) {
@@ -210,14 +244,25 @@ void LiensLocation::retourPagePrecedente() {
     }
 }
 
+/**
+ * @brief getter du booléen permettant l'affichage de la validation de la location
+ * @return vrai : on affiche le message de fin de location | faux : on le cache
+ */
 bool LiensLocation::getLocVal() {
     return locVal;
 }
 
+/**
+ * @brief setter du booléen permettant l'affichage de la validation de la location
+ * @param b le booléen
+ */
 void LiensLocation::setLocVal(bool b) {
     locVal = b;
 }
 
+/**
+ * @brief Destructeur de LiensLocation
+ */
 LiensLocation::~LiensLocation() {
 
 

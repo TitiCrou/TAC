@@ -1,5 +1,8 @@
 #include "leslieux.h"
 
+/**
+ * @brief Constructeur de LesLieux
+ */
 LesLieux::LesLieux() {
 
 }

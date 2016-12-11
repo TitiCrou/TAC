@@ -1,5 +1,10 @@
 #include "coteclient.h"
 
+/**
+ * @brief Constructeur de CoteClient
+ * @param parent le widget parent (en l'occurrence, la QMainWindow)
+ * Dans ce constructeur, les différents outils pour le client sont créés et initialisés
+ */
 CoteClient::CoteClient(QWidget * parent) {
 
     uiPpale = new Ui::FenetrePrincipale;
@@ -50,12 +55,19 @@ CoteClient::CoteClient(QWidget * parent) {
     parent->setWindowTitle("Transports à la carte");
 }
 
+/**
+ * @brief Début du formulaire de location
+ */
 void CoteClient::loc() {
     uiLoc->stackedWidget->setCurrentIndex(0);
     uiLoc->retour->hide();
     emit signalChangement(2);
 }
 
+/**
+ * @brief Change de fenêtre
+ * @param index l'indice de la fenêtre à afficher
+ */
 void CoteClient::afficherFenetre(int index) {
     if (index != 0) {
         uiPpale->confirmLoc->hide();
@@ -63,14 +75,23 @@ void CoteClient::afficherFenetre(int index) {
     stack->setCurrentIndex(index);
 }
 
+/**
+ * @brief Début du formulaire d'avis
+ */
 void CoteClient::mettreAvis() {
     emit signalChangement(1);
 }
 
+/**
+ * @brief Début du formulaire de signalement de problème
+ */
 void CoteClient::mettreProbleme() {
     emit signalChangement(3);
 }
 
+/**
+ * @brief Retour au menu principal
+ */
 void CoteClient::retourMenu() {
     emit signalChangement(0);
     if (liensLoc->getLocVal()) {
@@ -79,6 +100,9 @@ void CoteClient::retourMenu() {
     }
 }
 
+/**
+ * @brief Destructeur de CoteClient
+ */
 CoteClient::~CoteClient() {
     delete stack;
     delete uiPpale;

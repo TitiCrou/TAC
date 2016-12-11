@@ -1,9 +1,16 @@
 #include "liensprobleme.h"
 
+/**
+ * @brief Constructeur vide de LiensProbleme
+ */
 LiensProbleme::LiensProbleme() {
 
 }
 
+/**
+ * @brief Constructeur de LiensProbleme
+ * @param ui l'interface définissant la fenêtre dédiée aux problèmes
+ */
 LiensProbleme::LiensProbleme(Ui::FenetreProbleme *ui) {
 
      this->uiProb = ui;
@@ -14,6 +21,9 @@ LiensProbleme::LiensProbleme(Ui::FenetreProbleme *ui) {
 
 }
 
+/**
+ * @brief Valide le problème rapporté par le loueur
+ */
 void LiensProbleme::validerProbleme() {
     QString probleme = uiProb->zoneProbleme->toPlainText();
     QMessageBox test;
@@ -21,6 +31,9 @@ void LiensProbleme::validerProbleme() {
     test.exec();
 }
 
+/**
+ * @brief Destructeur de LiensProbleme
+ */
 LiensProbleme::~LiensProbleme() {
 
 }

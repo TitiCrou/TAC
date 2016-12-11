@@ -1,9 +1,16 @@
 #include "liensavis.h"
 
+/**
+ * @brief Constructeur vide de LiensAvis
+ */
 LiensAvis::LiensAvis() {
 
 }
 
+/**
+ * @brief Constructeur de LiensAvis
+ * @param ui l'interface définissant la fenêtre dédiée aux avis
+ */
 LiensAvis::LiensAvis(Ui::FenetreAvis *ui) {
 
     this->uiAvis = ui;
@@ -15,6 +22,9 @@ LiensAvis::LiensAvis(Ui::FenetreAvis *ui) {
 }
 
 
+/**
+ * @brief Valide l'avis donné par le loueur
+ */
 void LiensAvis::validerAvis() {
     QString avis = uiAvis->zoneAvis->toPlainText();
     //QString note = uiAvis->buttonGroup->checkedButton()->text();
@@ -31,6 +41,9 @@ void LiensAvis::validerAvis() {
 }
 
 
+/**
+ * @brief Destructeur de LiensAvis
+ */
 LiensAvis::~LiensAvis() {
 
 }
