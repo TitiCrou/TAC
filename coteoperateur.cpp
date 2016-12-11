@@ -12,6 +12,9 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
     stack = new QStackedWidget(parent);
 
     stack->addWidget(uiOp->centralWidget);
+
+    parent->setWindowTitle("Transports à la carte");
+
 }
 
 CoteOperateur::~CoteOperateur() {

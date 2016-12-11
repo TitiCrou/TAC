@@ -41,6 +41,8 @@ CoteClient::CoteClient(QWidget * parent) {
     connect(uiProb->menu, SIGNAL(clicked()), this, SLOT(retourMenu()));
 
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
+
+    parent->setWindowTitle("Transports à la carte");
 }
 
 void CoteClient::loc() {
