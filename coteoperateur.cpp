@@ -1,9 +1,17 @@
 #include "coteoperateur.h"
 
+/**
+ * @brief Constructeur vide de CoteOperateur
+ */
 CoteOperateur::CoteOperateur() {
 
 }
 
+/**
+ * @brief Constructeur de CoteOperateur
+ * @param parent le widget parent (en l'occurrence, la QMainWindow)
+ * Dans ce constructeur, les différents outils pour l'opérateur sont créés et initialisés
+ */
 CoteOperateur::CoteOperateur(QWidget * parent) {
 
     uiOp = new Ui::FenetreOperateur;
@@ -56,8 +64,9 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
     uiOp->stackedWidget->setCurrentIndex(0);
 }
 
-
-
+/**
+ * @brief Charge les objets disponibles en fonction de leur type (Bus, Voiture, Vélo, Lieu)
+ */
 void CoteOperateur::choixCategorie() {
     if(uiOp->busButton->isChecked()) {
         uiOp->listVehicule->clear();
@@ -75,6 +84,9 @@ void CoteOperateur::choixCategorie() {
     uiOp->listVehicule->setCurrentRow(0);
 }
 
+/**
+ * @brief Affiche la page de modification/suppression d'un objet
+ */
 void CoteOperateur::modification() {
     uiOp->stackedWidget->setCurrentIndex(2);
 
@@ -128,6 +140,9 @@ void CoteOperateur::modification() {
 
 }
 
+/**
+ * @brief Affiche la page d'ajout d'un objet
+ */
 void CoteOperateur::ajout() {
     uiOp->stackedWidget->setCurrentIndex(1);
 
@@ -153,6 +168,9 @@ void CoteOperateur::ajout() {
     }
 }
 
+/**
+ * @brief Valide la création d'un objet
+ */
 void CoteOperateur::validationAjout() {
 
     if(uiOp->placeButton->isChecked()) {
@@ -207,6 +225,9 @@ void CoteOperateur::validationAjout() {
     annulation();
 }
 
+/**
+ * @brief Valide les modifications apportées à un objet
+ */
 void CoteOperateur::validationModif() {
 
     if(uiOp->placeButton->isChecked()) {
@@ -269,6 +290,9 @@ void CoteOperateur::validationModif() {
     annulation();
 }
 
+/**
+ * @brief Supprime l'objet sélectionné par l'opérateur
+ */
 void CoteOperateur::suppression() {
 
     if(uiOp->placeButton->isChecked()) {
@@ -292,23 +316,21 @@ void CoteOperateur::suppression() {
     annulation();
 }
 
+/**
+ * @brief Retour à la page d'accueil de l'opérateur
+ */
 void CoteOperateur::annulation() {
     uiOp->stackedWidget->setCurrentIndex(0);
 
 }
 
-/*void CoteOperateur::retourPagePrecedente() {
-    int pos = uiOp->stackedWidget->currentIndex();
-    if (pos > 0) {
-        if (pos-1 == 0) {
-            uiOp->retour->hide();
-        }
-        uiOp->stackedWidget->setCurrentIndex(pos-1);
-    }
-}*/
-
-/* 0->Bus, 1->Vélo, 2->Voiture, 3->Lieu */
+/**
+ * @brief Configure l'affichage de la fenêtre en fonction du type d'objet que l'on traîte
+ * @param i le type d'objet à utiliser. 0->Bus, 1->Vélo, 2->Voiture, 3->Lieu
+ */
 void CoteOperateur::fenetreModif(int i) {
+    /* 0->Bus, 1->Vélo, 2->Voiture, 3->Lieu */
+
     uiOp->option1->setPlainText("");
     uiOp->option2->setPlainText("");
     uiOp->option3->setPlainText("");
@@ -381,6 +403,9 @@ void CoteOperateur::fenetreModif(int i) {
 
 }
 
+/**
+ * @brief Destructeur de CoteOperateur
+ */
 CoteOperateur::~CoteOperateur() {
     delete stack;
 }
