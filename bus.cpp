@@ -79,7 +79,12 @@ QString Bus::toQStringDetail() {
                     +patch::to_string(this->getPoids())).c_str());
 }
 
-
+/**
+ * @brief Utile pour le remplissage du label d'attributs
+ * @return les attributs du bus
+ * Renvoie les attributs du bus pour remplir le QLabel associé
+ * qui est affiché dans la fiche détaillée
+ */
 QString Bus::attributsFicheDetail() {
     return QString ("Marque\nModèle\nCouleur\nPrix par jour (€)\nAnnée\nKilométrage\nCapacité\nHauteur (m)\nPoids (t)");
 }
