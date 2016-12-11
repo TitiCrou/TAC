@@ -155,13 +155,13 @@ void CoteOperateur::ajout() {
 
 void CoteOperateur::validationAjout() {
 
-    if(uiOp->addOption1->isHidden()) {
+    if(uiOp->placeButton->isChecked()) {
         Lieu * l = new Lieu(uiOp->addMarque->toPlainText().toStdString(), false);
         listesDD->addLieu(l);
         listeLieux.push_back(l->toQString());
         uiOp->listVehicule->clear();
         uiOp->listVehicule->addItems(listeLieux);
-    } else if(!uiOp->addOption4->isHidden()) {
+    } else if(uiOp->busButton->isChecked()) {
         Bus * b = new Bus(uiOp->addOption1->toPlainText().toInt(),
                           uiOp->addOption2->toPlainText().toInt(),
                           uiOp->addOption3->toPlainText().toInt(),
@@ -176,8 +176,33 @@ void CoteOperateur::validationAjout() {
         listeBus.push_back(b->toQString());
         uiOp->listVehicule->clear();
         uiOp->listVehicule->addItems(listeBus);
+    } else if(uiOp->carButton->isChecked()) {
+        Voiture * b = new Voiture(uiOp->addOption1->toPlainText().toInt(),
+                          uiOp->addOption2->toPlainText().toInt(),
+                          uiOp->addModele->toPlainText().toStdString(),
+                          uiOp->addMarque->toPlainText().toStdString(),
+                          uiOp->addCouleur->toPlainText().toStdString(),
+                          "AA-004-AA",
+                          uiOp->addAnnee->toPlainText().toInt(),
+                          uiOp->addPrix->toPlainText().toInt());
+        listesDD->addVoiture(b);
+        listeVoiture.push_back(b->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVoiture);
+    } else if(uiOp->bikeButton->isChecked()) {
+        Velo * b = new Velo(uiOp->addOption1->toPlainText().toDouble(),
+                          uiOp->addOption2->toPlainText().toStdString(),
+                          uiOp->addModele->toPlainText().toStdString(),
+                          uiOp->addMarque->toPlainText().toStdString(),
+                          uiOp->addCouleur->toPlainText().toStdString(),
+                          "AA-004-AB",
+                          uiOp->addAnnee->toPlainText().toInt(),
+                          uiOp->addPrix->toPlainText().toInt());
+        listesDD->addVelo(b);
+        listeVelo.push_back(b->toQString());
+        uiOp->listVehicule->clear();
+        uiOp->listVehicule->addItems(listeVelo);
     }
-
 
     annulation();
 }
