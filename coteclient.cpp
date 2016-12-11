@@ -42,6 +42,8 @@ CoteClient::CoteClient(QWidget * parent) {
 
     connect(this, SIGNAL(signalChangement(int)), this, SLOT(afficherFenetre(int)));
 
+    uiPpale->confirmLoc->hide();
+
     parent->setWindowTitle("Transports à la carte");
 }
 
@@ -65,6 +67,7 @@ void CoteClient::mettreProbleme() {
 
 void CoteClient::retourMenu() {
     emit signalChangement(0);
+    uiPpale->confirmLoc->show();
 }
 
 CoteClient::~CoteClient() {
