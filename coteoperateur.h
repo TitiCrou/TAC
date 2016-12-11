@@ -23,7 +23,7 @@ protected slots:
     void modification();
     void ajout();
     void annulation();
-    void validation();
+    void validationAjout();
     void suppression();
 
 signals:

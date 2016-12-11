@@ -42,11 +42,11 @@ CoteOperateur::CoteOperateur(QWidget * parent) {
 
     // Section d'ajout
     connect(uiOp->annulationAjout, SIGNAL(clicked()), this, SLOT(annulation()));
-    connect(uiOp->validationAjout, SIGNAL(clicked()), this, SLOT(validation()));
+    connect(uiOp->validationAjout, SIGNAL(clicked()), this, SLOT(validationAjout()));
 
     // Section de modif/supp
     connect(uiOp->annulationModif, SIGNAL(clicked()), this, SLOT(annulation()));
-    connect(uiOp->validationModif, SIGNAL(clicked()), this, SLOT(validation()));
+    //connect(uiOp->validationModif, SIGNAL(clicked()), this, SLOT(validation()));
     connect(uiOp->suppressionVehicule, SIGNAL(clicked()), this, SLOT(suppression()));
 
     uiOp->listVehicule->addItems(listeVoiture);
@@ -152,12 +152,32 @@ void CoteOperateur::ajout() {
     }
 }
 
-void CoteOperateur::validation() {
+void CoteOperateur::validationAjout() {
+
+    if(uiOp->addOption1->isHidden()) {
+        Lieu * l = new Lieu(uiOp->addMarque->toPlainText().toStdString(), false);
+        listesDD->addLieu(l);
+    } else if(!uiOp->addOption4->isHidden()) {
+        Bus * b = new Bus(uiOp->addOption1->toPlainText().toInt(),
+                          uiOp->addOption2->toPlainText().toInt(),
+                          uiOp->addOption3->toPlainText().toInt(),
+                          uiOp->addOption4->toPlainText().toInt(),
+                          uiOp->addModele->toPlainText().toStdString(),
+                          uiOp->addMarque->toPlainText().toStdString(),
+                          uiOp->addCouleur->toPlainText().toStdString(),
+                          "AA-004-AC",
+                          uiOp->addAnnee->toPlainText().toInt(),
+                          uiOp->addPrix->toPlainText().toInt());
+        //listesDD->addBus(b);
+        listeBus.push_back(b->toQString());
+    }
 
     annulation();
 }
 
 void CoteOperateur::suppression() {
+
+
 
     annulation();
 }
