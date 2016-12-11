@@ -8,6 +8,7 @@
 #include <sstream>
 
 #include "lienslocation.h"
+#include "coteoperateur.h"
 #include "voiture.h"
 #include "bus.h"
 #include "velo.h"
@@ -22,11 +23,13 @@ class BaseDeDonnees {
 public:
     BaseDeDonnees();
     void creerBDD(LiensLocation * ll);
+    void creerBDD(CoteOperateur * co);
     ~BaseDeDonnees();
 
 private:
     FILE *fichier ;
     LiensLocation * liensLoc;
+    CoteOperateur * operateur;
     void chargerVoiture(std::vector<std::string> vo);
     void chargerBus(std::vector<std::string> bu);
     void chargerVelo(std::vector<std::string> ve);
